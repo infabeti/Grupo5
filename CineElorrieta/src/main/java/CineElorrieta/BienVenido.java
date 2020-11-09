@@ -22,7 +22,7 @@ public class BienVenido extends JFrame {
         cronom.schedule(new TimerTask() {
         public void run(){ // método que llevará a la ventana 
       
-        Login.logeo=new Login();
+        Login logeo =new Login();
         logeo.setBounds(0,0,900,600);
         logeo.setVisible(true);
         logeo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
