@@ -51,7 +51,7 @@ public class Menu extends JFrame {
 		setBounds(100, 100, 1026, 727);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-		contentPane.setLocation(null);
+//		contentPane.setLocation(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
