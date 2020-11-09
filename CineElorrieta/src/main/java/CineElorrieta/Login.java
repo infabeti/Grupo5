@@ -108,7 +108,7 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	
 
 	public static void main(String[] ar){
-		VentanaLogin login=new VentanaLogin ();
+		Login login=new Login ();
 		login.setBounds(0, 0, 900, 600);
 		login.setVisible(true);    
 		login.setResizable(false);
