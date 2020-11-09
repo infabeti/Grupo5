@@ -17,7 +17,7 @@ public class BienVenido extends JFrame {
         bienvenido.setFont(bienvenido.getFont().deriveFont(60f));
         add(bienvenido);
 
-        //cronometro de 3segundos que lleva automaticamente a la siguiente ventana
+        //cronometro  de 3segundos que lleva automaticamente a la siguiente ventana
         Timer cronom = new Timer();
         cronom.schedule(new TimerTask() {
         public void run(){ // método que llevará a la ventana 
