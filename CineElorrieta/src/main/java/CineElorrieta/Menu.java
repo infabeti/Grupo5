@@ -18,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToolBar;
 import javax.swing.JSeparator;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class Menu extends JFrame {
 
@@ -49,6 +51,7 @@ public class Menu extends JFrame {
 		setBounds(100, 100, 1026, 727);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
+		contentPane.setLocation(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
