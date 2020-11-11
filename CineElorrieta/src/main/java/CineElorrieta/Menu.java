@@ -24,7 +24,10 @@ import java.awt.Toolkit;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-
+	public JComboBox dramaSabado;
+	public SistemaMenu sistemaMenu = new SistemaMenu();
+	public int tiempoSabado,tiempoDomingo;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +54,6 @@ public class Menu extends JFrame {
 		setBounds(100, 100, 1026, 727);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-//		contentPane.setLocation(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -63,7 +65,7 @@ public class Menu extends JFrame {
 		JComboBox dramaSabado = new JComboBox();
 		dramaSabado.setBackground(Color.WHITE);
 		dramaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		dramaSabado.setModel(new DefaultComboBoxModel(new String[] {"", "Handia: 1 h 56 min.", "La lista de Schindler: 3 h 17 min.", "Cadena Perpetua: 2 h 22 min.", "Million Dollar Baby: 2 h 13 min."}));
+		dramaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("drama")));
 		dramaSabado.setBounds(66, 223, 366, 37);
 		contentPane.add(dramaSabado);
 		
@@ -79,14 +81,14 @@ public class Menu extends JFrame {
 		
 		JComboBox comediaSabado = new JComboBox();
 		comediaSabado.setBackground(Color.WHITE);
-		comediaSabado.setModel(new DefaultComboBoxModel(new String[] {"", "Scary movie: 1 h 30 min.", "El gran Lebowsky: 1 h 59 min.", "La vida de Brian: 1 h 34 min.", "Aterriza como puedas: 1 h 28 min."}));
+		comediaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("comedia")));
 		comediaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comediaSabado.setBounds(66, 305, 366, 37);
 		contentPane.add(comediaSabado);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("S\u00E1bado");
+		JLabel lblNewLabel_1_2 = new JLabel("S\u00E1bado: "+sistemaMenu.calcularTiempoSabado());
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1_2.setBounds(130, 114, 112, 31);
+		lblNewLabel_1_2.setBounds(130, 114, 202, 31);
 		contentPane.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Terror");
@@ -96,7 +98,7 @@ public class Menu extends JFrame {
 		
 		JComboBox terrorSabado = new JComboBox();
 		terrorSabado.setBackground(Color.WHITE);
-		terrorSabado.setModel(new DefaultComboBoxModel(new String[] {"", "Psicosis: 1 h 49 min.", "El resplandor: 2 h 26 min.", "Dracula: 2 h 35 min.", "Cisne negro: 1 h 50 min."}));
+		terrorSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("terror")));
 		terrorSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		terrorSabado.setBounds(66, 397, 366, 37);
 		contentPane.add(terrorSabado);
@@ -108,14 +110,14 @@ public class Menu extends JFrame {
 		
 		JComboBox cienciaSabado = new JComboBox();
 		cienciaSabado.setBackground(Color.WHITE);
-		cienciaSabado.setModel(new DefaultComboBoxModel(new String[] {"", "2001: Odisea en el espacio 2 h 22 min.", "La novia de Frankenstein: 1 h 15 min.", "El planeta de los simios: 1 h 55 min.", "Alien, el octavo pasajero: 1 h 57 min."}));
+		cienciaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("scifi")));
 		cienciaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cienciaSabado.setBounds(66, 502, 366, 37);
 		contentPane.add(cienciaSabado);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Domingo");
+		JLabel lblNewLabel_1_2_1 = new JLabel("Domingo: "+sistemaMenu.calcularTiempoDomingo());
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1_2_1.setBounds(669, 114, 112, 31);
+		lblNewLabel_1_2_1.setBounds(669, 114, 222, 31);
 		contentPane.add(lblNewLabel_1_2_1);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Drama");
@@ -154,25 +156,28 @@ public class Menu extends JFrame {
 		contentPane.add(btnSalir);
 		
 		JComboBox dramaDomingo = new JComboBox();
-		dramaDomingo.setModel(new DefaultComboBoxModel(new String[] {"", "Handia: 1 h 56 min.", "La lista de Schindler: 3 h 17 min.", "Cadena Perpetua: 2 h 22 min.", "Million Dollar Baby: 2 h 13 min."}));
+		dramaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("drama")));
 		dramaDomingo.setBackground(Color.WHITE);
 		dramaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		dramaDomingo.setBounds(538, 223, 394, 37);
 		contentPane.add(dramaDomingo);
 		
 		JComboBox comediaDomingo = new JComboBox();
+		comediaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("comedia")));
 		comediaDomingo.setBackground(Color.WHITE);
 		comediaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comediaDomingo.setBounds(538, 305, 394, 37);
 		contentPane.add(comediaDomingo);
 		
 		JComboBox terrorDomingo = new JComboBox();
+		terrorDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("terror")));
 		terrorDomingo.setBackground(Color.WHITE);
 		terrorDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		terrorDomingo.setBounds(538, 397, 394, 37);
 		contentPane.add(terrorDomingo);
 		
 		JComboBox cienciaDomingo = new JComboBox();
+		cienciaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("scifi")));
 		cienciaDomingo.setBackground(Color.WHITE);
 		cienciaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cienciaDomingo.setBounds(538, 502, 394, 37);
