@@ -2,6 +2,7 @@ package CineElorrieta;
 
 import java.awt.Color;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class SistemaLogin {
@@ -15,6 +16,12 @@ public class SistemaLogin {
 		 if(admin.equals(ventanaLogin.administrador) && pass.equals(ventanaLogin.password)) {	
 			 //CORRECTO	
 			System.out.println("Correcto");
+			Menu menuPeli = new Menu();
+			menuPeli.setBounds(0,0,900,600);
+			menuPeli.setLocationRelativeTo(null);
+			menuPeli.setVisible(true);
+			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        
 		 }else{
 			 //INCORRECTO
 			System.out.println("Incorrecto");

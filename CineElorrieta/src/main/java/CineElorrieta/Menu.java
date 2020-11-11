@@ -20,11 +20,12 @@ import javax.swing.JToolBar;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JSplitPane;
 
 public class Menu extends JFrame {
-
-	private JPanel contentPane;
-
+//	public ElegirPeliculas peliculas = new ElegirPeliculas();
+	public JPanel contentPane;
+	public String drama;
 	/**
 	 * Launch the application.
 	 */
@@ -33,7 +34,9 @@ public class Menu extends JFrame {
 			public void run() {
 				try {
 					Menu frame = new Menu();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,13 +48,14 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		setResizable(false);
 		setBackground(Color.RED);
 		setTitle("Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1026, 727);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-//		contentPane.setLocation(null);
+
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -179,8 +183,15 @@ public class Menu extends JFrame {
 		contentPane.add(cienciaDomingo);
 		
 		JButton btnSiguiente = new JButton("SIGUIENTE");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+		
+			
+			}
+			
+		});
 		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnSiguiente.setBounds(790, 619, 142, 37);
+		btnSiguiente.setBounds(771, 619, 161, 37);
 		contentPane.add(btnSiguiente);
 		
 		JSeparator separator = new JSeparator();

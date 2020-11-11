@@ -27,41 +27,41 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 		
 	public Login(){
 		
-		setLayout(null);
+		getContentPane().setLayout(null);
 		
 		adminLabel = new JLabel("Administrador:");
 		adminLabel.setBounds(10, 10, 100, 30);
-		add(adminLabel);
+		getContentPane().add(adminLabel);
 		
 		passLabel = new JLabel("Contraseña:");
 		passLabel.setBounds(10, 50, 100, 30);
-		add(passLabel);
+		getContentPane().add(passLabel);
 		
 		adminText=new JTextField();
 		adminText.setBounds(130, 15, 100, 20);
 		adminText.addFocusListener(this);
-	    add(adminText);
+	    getContentPane().add(adminText);
 	    
 	    passText=new JPasswordField();
 	    passText.setBounds(130, 55, 100, 20);
 	    passText.addFocusListener(this);
-	    add(passText);
+	    getContentPane().add(passText);
 
 	    entrar=new JButton("Entrar");
 	    entrar.setBounds(10, 100, 80, 25);  
 	    entrar.addActionListener(this);
-	    add(entrar);  
+	    getContentPane().add(entrar);  
 	    
 	    salir=new JButton("Salir");
 	    salir.setBounds(150, 100, 80, 25);  
 	    salir.addActionListener(this);
-	    add(salir);
+	    getContentPane().add(salir);
 	    
 	    mensaje=new JLabel("*INTROUCE EL ADMINISTRADOR Y CONTRASEÑA CORRECTOS");
 		mensaje.setBounds(10, 150, 350, 25);
 		mensaje.setForeground(Color.RED);
 		mensaje.setVisible(false);
-		add(mensaje);
+		getContentPane().add(mensaje);
 	    
 	}
 	
@@ -110,6 +110,7 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	public static void main(String[] ar){
 		Login login=new Login ();
 		login.setBounds(0, 0, 900, 600);
+		login.setLocationRelativeTo(null);
 		login.setVisible(true);    
 		login.setResizable(false);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
