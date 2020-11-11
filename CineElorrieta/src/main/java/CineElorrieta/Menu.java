@@ -27,9 +27,6 @@ public class Menu extends JFrame {
 //	public ElegirPeliculas peliculas = new ElegirPeliculas();
 	public JPanel contentPane;
 	public String drama;
-
-
-	private JPanel contentPane;
 	public JComboBox dramaSabado;
 	public SistemaMenu sistemaMenu = new SistemaMenu();
 	public int tiempoSabado,tiempoDomingo;
