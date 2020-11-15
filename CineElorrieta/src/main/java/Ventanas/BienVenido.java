@@ -1,5 +1,6 @@
-package CineElorrieta;
+package Ventanas;
 import javax.swing.*;
+
 import java.util.TimerTask;
 import java.util.Timer;
 import java.awt.Window.Type;

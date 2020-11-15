@@ -1,9 +1,12 @@
-package CineElorrieta;
+package Sistema;
 
 import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import Ventanas.Login;
+import Ventanas.Menu;
 
 public class SistemaLogin {
 

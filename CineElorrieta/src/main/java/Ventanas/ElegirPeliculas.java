@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Ventanas;
 
 import javax.swing.JFrame;
 

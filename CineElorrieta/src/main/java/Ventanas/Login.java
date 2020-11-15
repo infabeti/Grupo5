@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Ventanas;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +22,7 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	//BOTONES
 	public JButton entrar,salir;
 	//CLASE DE METODOS
-	public SistemaLogin sistemaLogin = new SistemaLogin();
+	public Sistema.SistemaLogin sistemaLogin = new Sistema.SistemaLogin();
 	//STRINGS PARA COMPROBAR
 	public String administrador="admin",password="1234";
 	private JLabel lblCineElorrieta;

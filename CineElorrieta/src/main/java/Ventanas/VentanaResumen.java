@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -32,6 +32,7 @@ public class VentanaResumen extends JFrame {
 				try {
 					VentanaResumen frame = new VentanaResumen();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,7 +59,7 @@ public class VentanaResumen extends JFrame {
 		JButton btnNewButton = new JButton("SEGUIR ELIGIENDO");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Menu menu =new Menu();
+				Ventanas.Menu menu =new Ventanas.Menu();
 				menu.setBounds(0,0,1024,768);
 				menu.setLocationRelativeTo(null);
 				menu.setVisible(true);

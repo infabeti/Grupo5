@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -31,7 +32,7 @@ public class Menu extends JFrame {
 	public JPanel contentPane;
 	public String drama;
 	public JComboBox dramaSabado;
-	public SistemaMenu sistemaMenu = new SistemaMenu();
+	public Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
 	public int tiempoSabado,tiempoDomingo;
 	
 
