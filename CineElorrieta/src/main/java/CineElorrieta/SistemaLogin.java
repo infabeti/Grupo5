@@ -17,7 +17,7 @@ public class SistemaLogin {
 			 //CORRECTO	
 			System.out.println("Correcto");
 			Menu menuPeli = new Menu();
-			menuPeli.setBounds(0,0,900,600);
+			menuPeli.setBounds(0,0,1024,768);
 			menuPeli.setLocationRelativeTo(null);
 			menuPeli.setVisible(true);
 			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

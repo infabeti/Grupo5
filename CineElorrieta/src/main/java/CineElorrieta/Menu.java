@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -21,6 +23,7 @@ import javax.swing.JSeparator;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JSplitPane;
+import javax.swing.SwingConstants;
 
 public class Menu extends JFrame {
 
@@ -58,7 +61,7 @@ public class Menu extends JFrame {
 		setBackground(Color.RED);
 		setTitle("Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1026, 727);
+		setBounds(100, 100, 1031, 733);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 
@@ -148,15 +151,11 @@ public class Menu extends JFrame {
 		lblNewLabel_1_1_1_1_1.setBounds(669, 447, 155, 44);
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		
-		Component verticalStrut = Box.createVerticalStrut(20);
-		verticalStrut.setBackground(Color.BLACK);
-		verticalStrut.setBounds(466, 179, 43, 400);
-		contentPane.add(verticalStrut);
-		
 		JButton btnSalir = new JButton("SALIR");
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "La operación se ha cancelado.");
 				System.exit(0);
 			}
 		});
@@ -194,7 +193,11 @@ public class Menu extends JFrame {
 		JButton btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-		
+				 	VentanaResumen resumen =new VentanaResumen();
+				 	resumen.setBounds(0,0,1024,768);
+				 	resumen.setLocationRelativeTo(null);
+				 	resumen.setVisible(true);
+				 	resumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
 			}
 			
@@ -208,5 +211,10 @@ public class Menu extends JFrame {
 		separator.setBackground(Color.RED);
 		separator.setBounds(591, 165, -266, -77);
 		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setOrientation(SwingConstants.VERTICAL);
+		separator_1.setBounds(487, 114, 21, 484);
+		contentPane.add(separator_1);
 	}
 }

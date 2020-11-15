@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.util.TimerTask;
 import java.util.Timer;
 import java.awt.Window.Type;
+import java.awt.Font;
 //import static CineElorrieta.VentanaLogin.iniciostart;
 
 
@@ -15,17 +16,17 @@ public class BienVenido extends JFrame {
     	    	
         bienvenido=new JLabel("BIENVENIDO");
         bienvenido.setBounds(192,237,400,60);
-        bienvenido.setFont(bienvenido.getFont().deriveFont(60f));
+        bienvenido.setFont(new Font("Tahoma", Font.BOLD, 60));
         getContentPane().add(bienvenido);
         
         JLabel bienvenido_1 = new JLabel("AL");
-        bienvenido_1.setFont(bienvenido_1.getFont().deriveFont(60f));
-        bienvenido_1.setBounds(342, 353, 100, 60);
+        bienvenido_1.setFont(new Font("Tahoma", Font.BOLD, 60));
+        bienvenido_1.setBounds(342, 344, 100, 60);
         getContentPane().add(bienvenido_1);
         
         JLabel bienvenido_2 = new JLabel("CINE ELORRIETA");
-        bienvenido_2.setFont(bienvenido_2.getFont().deriveFont(60f));
-        bienvenido_2.setBounds(142, 434, 500, 60);
+        bienvenido_2.setFont(new Font("Tahoma", Font.BOLD, 60));
+        bienvenido_2.setBounds(110, 434, 564, 60);
         getContentPane().add(bienvenido_2);
 
         //cronometro de 3segundos que lleva automaticamente a la siguiente ventana
@@ -34,7 +35,7 @@ public class BienVenido extends JFrame {
         public void run(){ // método que llevará a la ventana 
       
         Login logeo =new Login();
-        logeo.setBounds(0,0,900,600);
+        logeo.setBounds(0,0,1024,768);
         logeo.setLocationRelativeTo(null);
         logeo.setVisible(true);
         logeo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +49,7 @@ public class BienVenido extends JFrame {
       public static void main(String[] ar){
        
            BienVenido inicio=new BienVenido();
-           inicio.setBounds(0,0,900,600);
+           inicio.setBounds(0,0,1024,768);
            inicio.setLocationRelativeTo(null);
            inicio.setVisible(true);
            inicio.setTitle("Bienvenido");
