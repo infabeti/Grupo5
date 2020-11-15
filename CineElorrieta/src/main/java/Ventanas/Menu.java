@@ -18,6 +18,8 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToolBar;
 import javax.swing.JSeparator;
@@ -26,14 +28,14 @@ import java.awt.Toolkit;
 import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame implements ActionListener {
 
 //	public ElegirPeliculas peliculas = new ElegirPeliculas();
 	public JPanel contentPane;
 	public String drama;
-	public JComboBox dramaSabado;
+	public JComboBox<String> dramaSabado;
+	public JLabel labelSabado;
 	public Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
-	public int tiempoSabado,tiempoDomingo;
 	/**
 	 * Launch the application.
 	 */
@@ -72,12 +74,19 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(443, 41, 124, 50);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox dramaSabado = new JComboBox();
+		//LABEL DEL TIEMPO SABADO
+		labelSabado = new JLabel("S\u00E1bado: "+sistemaMenu.calcularTiempoSabado());
+		labelSabado.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		labelSabado.setBounds(130, 114, 242, 31);
+		contentPane.add(labelSabado);
+		
+		dramaSabado=new JComboBox<String>();
 		dramaSabado.setBackground(Color.WHITE);
 		dramaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		dramaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("drama")));
 		dramaSabado.setBounds(66, 223, 366, 37);
-		contentPane.add(dramaSabado);
+		contentPane.add(dramaSabado);	
+		dramaSabado.addActionListener(this);
 		
 		JLabel lblNewLabel_1 = new JLabel("Drama");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -96,10 +105,6 @@ public class Menu extends JFrame {
 		comediaSabado.setBounds(66, 305, 366, 37);
 		contentPane.add(comediaSabado);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("S\u00E1bado: "+sistemaMenu.calcularTiempoSabado());
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1_2.setBounds(130, 114, 202, 31);
-		contentPane.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Terror");
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -125,6 +130,7 @@ public class Menu extends JFrame {
 		cienciaSabado.setBounds(66, 502, 366, 37);
 		contentPane.add(cienciaSabado);
 		
+		//LABEL DEL TIEMPO DOMINGO
 		JLabel lblNewLabel_1_2_1 = new JLabel("Domingo: "+sistemaMenu.calcularTiempoDomingo());
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1_2_1.setBounds(669, 114, 222, 31);
@@ -216,4 +222,11 @@ public class Menu extends JFrame {
 		separator_1.setBounds(487, 114, 21, 484);
 		contentPane.add(separator_1);
 	}
+	
+	 public void actionPerformed(ActionEvent e){
+	        if (e.getSource()==dramaSabado) {
+	        	sistemaMenu.dramaSabadoCambiado(dramaSabado.getSelectedIndex());
+	        }
+	    }
+	
 }

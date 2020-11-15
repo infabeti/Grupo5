@@ -1,15 +1,22 @@
 package Sistema;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 import javax.swing.DefaultComboBoxModel;
+
+import Ventanas.Login;
+import Ventanas.Menu;
 
 public class SistemaMenu {
 	
-	int tiempoSabado=247;
-	int tiempoDomingo=124;
+	
+	public int tiempoSabado=480;
+	public int tiempoDomingo=124;
 	
 	//lista de peliculas con su tiempo por genero
-    String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
-    int tiempoPeliculasDrama[]= {0,116,197,143,133};
+	public String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
+	public int tiempoPeliculasDrama[]= {0,116,197,143,133};
    
     String peliculasScifi[]= {"","2001:Odisea en el espacio: 2 h 22 min","La novia de Frankestein: 1 h 15 min",
     						  "El planeta de los simios: 1 h 55 min","Alien, el octavo pasajero: 1 h 57 min"};
@@ -199,7 +206,18 @@ public class SistemaMenu {
 			
 			return total;
 		}
-	
-    
+	 
+		public void dramaSabadoCambiado(int indexSeleccionado) {
+			Ventanas.Menu ventanaMenu= new Ventanas.Menu();
+			
+			int tiempoSeleccionado=tiempoPeliculasDrama[indexSeleccionado];
+        	tiempoSabado=tiempoSabado-tiempoSeleccionado;
+        	
+        	ventanaMenu.labelSabado.setText("S\u00E1bado: "+calcularTiempoSabado());
+        	
+        	tiempoSabado=tiempoSabado+tiempoSeleccionado;
+        	
+		}
+		
 
 }
