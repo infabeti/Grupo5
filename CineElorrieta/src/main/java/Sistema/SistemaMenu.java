@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Sistema;
 
 import javax.swing.DefaultComboBoxModel;
 

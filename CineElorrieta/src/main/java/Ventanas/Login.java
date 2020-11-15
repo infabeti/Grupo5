@@ -1,4 +1,4 @@
-package CineElorrieta;
+package Ventanas;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import java.awt.Font;
 
 public class Login extends JFrame implements ActionListener,FocusListener{
 	
@@ -21,47 +22,56 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	//BOTONES
 	public JButton entrar,salir;
 	//CLASE DE METODOS
-	public SistemaLogin sistemaLogin = new SistemaLogin();
+	public Sistema.SistemaLogin sistemaLogin = new Sistema.SistemaLogin();
 	//STRINGS PARA COMPROBAR
 	public String administrador="admin",password="1234";
+	private JLabel lblCineElorrieta;
 		
 	public Login(){
+		getContentPane().setLayout(null);
 		
-		setLayout(null);
+		adminLabel = new JLabel("LOGIN:");
+		adminLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		adminLabel.setBounds(373, 168, 122, 30);
+		getContentPane().add(adminLabel);
 		
-		adminLabel = new JLabel("Administrador:");
-		adminLabel.setBounds(10, 10, 100, 30);
-		add(adminLabel);
-		
-		passLabel = new JLabel("Contraseña:");
-		passLabel.setBounds(10, 50, 100, 30);
-		add(passLabel);
+		passLabel = new JLabel("CONTRASEÑA:");
+		passLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		passLabel.setBounds(322, 209, 162, 48);
+		getContentPane().add(passLabel);
 		
 		adminText=new JTextField();
-		adminText.setBounds(130, 15, 100, 20);
+		adminText.setBounds(505, 168, 126, 30);
 		adminText.addFocusListener(this);
-	    add(adminText);
+	    getContentPane().add(adminText);
 	    
 	    passText=new JPasswordField();
-	    passText.setBounds(130, 55, 100, 20);
+	    passText.setBounds(505, 222, 126, 30);
 	    passText.addFocusListener(this);
-	    add(passText);
+	    getContentPane().add(passText);
 
-	    entrar=new JButton("Entrar");
-	    entrar.setBounds(10, 100, 80, 25);  
+	    entrar=new JButton("ENTRAR");
+	    entrar.setFont(new Font("Tahoma", Font.BOLD, 20));
+	    entrar.setBounds(574, 338, 131, 33);
 	    entrar.addActionListener(this);
-	    add(entrar);  
+	    getContentPane().add(entrar);  
 	    
-	    salir=new JButton("Salir");
-	    salir.setBounds(150, 100, 80, 25);  
+	    salir=new JButton("SALIR");
+	    salir.setFont(new Font("Tahoma", Font.BOLD, 20));
+	    salir.setBounds(373, 338, 100, 33);
 	    salir.addActionListener(this);
-	    add(salir);
+	    getContentPane().add(salir);
 	    
 	    mensaje=new JLabel("*INTROUCE EL ADMINISTRADOR Y CONTRASEÑA CORRECTOS");
-		mensaje.setBounds(10, 150, 350, 25);
+	    mensaje.setBounds(355, 400, 350, 25);
 		mensaje.setForeground(Color.RED);
 		mensaje.setVisible(false);
-		add(mensaje);
+		getContentPane().add(mensaje);
+		
+		lblCineElorrieta = new JLabel("CINE ELORRIETA");
+		lblCineElorrieta.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCineElorrieta.setBounds(384, 61, 240, 30);
+		getContentPane().add(lblCineElorrieta);
 	    
 	}
 	
@@ -96,8 +106,7 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 			 revalidate();*/
 			
 		}
-		 		
-		
+		 			
 	}
 
 	//QUITAR FOCUS
@@ -105,17 +114,13 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	public void focusLost(FocusEvent e) {
 		
 	}
-	
 
 	public static void main(String[] ar){
 		Login login=new Login ();
-		login.setBounds(0, 0, 900, 600);
+		login.setBounds(0, 0, 1024,768);
+		login.setLocationRelativeTo(null);
 		login.setVisible(true);    
 		login.setResizable(false);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
-	
-
 }
