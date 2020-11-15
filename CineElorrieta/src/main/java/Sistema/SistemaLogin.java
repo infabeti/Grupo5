@@ -14,9 +14,11 @@ public class SistemaLogin {
 	//METODO PARA CHECKEAR QUE ADMIN Y CONTRASEÑA
 	public void checkAdmin(String admin,String pass) {
 		
+		//STRINGS PARA COMPROBAR
+		 String administrador="admin",password="1234";
 		 Login ventanaLogin= new Login();
 		 
-		 if(admin.equals(ventanaLogin.administrador) && pass.equals(ventanaLogin.password)) {	
+		 if(admin.equals(administrador) && pass.equals(password)) {	
 			 //CORRECTO	
 			System.out.println("Correcto");
 			Menu menuPeli = new Menu();

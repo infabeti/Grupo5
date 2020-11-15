@@ -23,8 +23,6 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	public JButton entrar,salir;
 	//CLASE DE METODOS
 	public Sistema.SistemaLogin sistemaLogin = new Sistema.SistemaLogin();
-	//STRINGS PARA COMPROBAR
-	public String administrador="admin",password="1234";
 	private JLabel lblCineElorrieta;
 		
 	public Login(){
