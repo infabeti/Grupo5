@@ -27,7 +27,6 @@ public class Menu extends JFrame {
 	public JComboBox dramaSabado;
 	public SistemaMenu sistemaMenu = new SistemaMenu();
 	public int tiempoSabado,tiempoDomingo;
-	
 	/**
 	 * Launch the application.
 	 */
