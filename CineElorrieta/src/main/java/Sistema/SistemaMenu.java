@@ -2,6 +2,7 @@ package Sistema;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 
@@ -11,7 +12,7 @@ import Ventanas.Menu;
 public class SistemaMenu {
 	
 	
-	public int tiempoSabado=480;
+	public int tiempoSabado=400;
 	public int tiempoDomingo=124;
 	
 	//lista de peliculas con su tiempo por genero
@@ -28,142 +29,180 @@ public class SistemaMenu {
     String peliculasTerror[]= {"","Psicosis: 1 h 49 min","El resplandor: 2 h 26 min","Dracula: 2 h 35 min","Cisne negro: 1 h 50 min"};
     int tiempoPeliculasTerror[]= {0,109,146,155,110};
 	
-		public String[] mostrarPeliculasSabado(String genero) {
+		public String[] mostrarPeliculas(String genero,String dia) {
 		 
-		    //Creamos un array con las peliculas que vamos a mostrar
-		    String resultadoCombo[];
-		    resultadoCombo = new String[5];
+		    //Creamos un ArrayList con las peliculas que vamos a mostrar
+			ArrayList<String> peliculasPorGenero = new ArrayList<String>();
+			String[] resultadoCombo= {};
 		    
-		    if(genero.toUpperCase().equals("DRAMA")){
+		    if(genero.equalsIgnoreCase("drama")){
 			    //PELICULAS DRAMA
 		    	for(int i=0;i<tiempoPeliculasDrama.length;i++) {
 			    	
 			    	//Miramos que esa pelicula pueda entrar dentro del dia
-			    	if(tiempoSabado>= tiempoPeliculasDrama[i]) {
-			    		
-			    		//añadimos esa pelicula a el array
-			    		resultadoCombo[i]=peliculasDrama[i];
-			    	
-				    }
+		    		//SABADO
+		    		if(dia.equalsIgnoreCase("sabado")) {
+				    	
+		    			if(tiempoSabado>= tiempoPeliculasDrama[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasDrama[i]);  	
+					    }
+		    		//DOMINGO	
+		    		}else if(dia.equalsIgnoreCase("domingo")) {
+		    			if(tiempoDomingo>= tiempoPeliculasDrama[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasDrama[i]);  	
+					    }
+		    			
+		    		}
 		    	
-			    }    	
-		    	return  resultadoCombo;
-		   
-		    //PELICULAS SCI-FI
-		    }else if(genero.toUpperCase().equals("SCIFI")) {
-		    	
-		    	for(int i=0;i<tiempoPeliculasScifi.length;i++) {
-			    	
-			    	if(tiempoSabado>= tiempoPeliculasScifi[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasScifi[i];
-			    	
-				    }
-		    	
+			    }  
+		    	 		
+		    	//Eliminamos si hay espacios en blanco
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		      
+		    		    if(peliculasPorGenero.get(i).equals("") && i!=0){
+		    		    	peliculasPorGenero.remove(i);
+		    		    }
 		    	}
-		    	return  resultadoCombo;
-		   
-		    //PELICULAS COMEDIA
-		    }else if(genero.toUpperCase().equals("COMEDIA")) {
 		    	
+		    	//Creamos el array donde vamos a mostrar en el comboBox
+		    	resultadoCombo = new String[peliculasPorGenero.size()];
+		    	
+		    	//Y le añadimos los elementos
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		resultadoCombo[i]=peliculasPorGenero.get(i);
+		    	}
+		    	
+		    	return resultadoCombo;
+		    	
+		    	
+		    }else if(genero.equalsIgnoreCase("comedia")){
+		    	
+		    	 //PELICULAS COMEDIA
 		    	for(int i=0;i<tiempoPeliculasComedia.length;i++) {
-			    	
-			    	if(tiempoSabado>= tiempoPeliculasComedia[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasComedia[i];
-			    	
-				    }
+			    
+		    		//SABADO
+		    		if(dia.equalsIgnoreCase("sabado")) {
+				    	
+		    			if(tiempoSabado>= tiempoPeliculasComedia[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasComedia[i]);  	
+					    }
+		    		//DOMINGO	
+		    		}else if(dia.equalsIgnoreCase("domingo")) {
+		    			if(tiempoDomingo>= tiempoPeliculasComedia[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasComedia[i]);  	
+					    }
+		    			
+		    		}
 		    	
+			    }  
+		    	 		
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {      
+		    		    if(peliculasPorGenero.get(i).equals("") && i!=0){
+		    		    	peliculasPorGenero.remove(i);
+		    		    }
 		    	}
-		    	return  resultadoCombo;
-		    //PELICULAS TERROR
-		    }else if(genero.toUpperCase().equals("TERROR")) {
+		    	 	
+		    	resultadoCombo = new String[peliculasPorGenero.size()];
 		    	
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		resultadoCombo[i]=peliculasPorGenero.get(i);
+		    	}
+		    	
+		    	return resultadoCombo;
+		    	  
+			}else if(genero.equalsIgnoreCase("terror")){
+		    	
+		    	 //PELICULAS TERROR
 		    	for(int i=0;i<tiempoPeliculasTerror.length;i++) {
-			    	
-			    	if(tiempoSabado>= tiempoPeliculasTerror[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasTerror[i];
-			    	
-				    }
+			    
+		    		//SABADO
+		    		if(dia.equalsIgnoreCase("sabado")) {
+				    	
+		    			if(tiempoSabado>= tiempoPeliculasTerror[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasTerror[i]);  	
+					    }
+		    		//DOMINGO	
+		    		}else if(dia.equalsIgnoreCase("domingo")) {
+		    			if(tiempoDomingo>= tiempoPeliculasTerror[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasTerror[i]);  	
+					    }
+		    			
+		    		}
 		    	
+			    }  
+		    	 		
+		    	
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		      
+		    		    if(peliculasPorGenero.get(i).equals("") && i!=0){
+		    		    	peliculasPorGenero.remove(i);
+		    		    }
 		    	}
-		    	return  resultadoCombo;
+		    	
+		    	
+		    	resultadoCombo = new String[peliculasPorGenero.size()];
+		    	
+		    	
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		resultadoCombo[i]=peliculasPorGenero.get(i);
+		    	}
+		    	
+		    	return resultadoCombo;
 		    
-		    }
 		    
+		    
+			}else if(genero.equalsIgnoreCase("scifi")){
+		    	
+		    	 //PELICULAS SCIFI
+		    	for(int i=0;i<tiempoPeliculasScifi.length;i++) {
+			   
+		    		//SABADO
+		    		if(dia.equalsIgnoreCase("sabado")) {
+				    	
+		    			if(tiempoSabado>= tiempoPeliculasScifi[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasScifi[i]);  	
+					    }
+		    		//DOMINGO	
+		    		}else if(dia.equalsIgnoreCase("domingo")) {
+		    			if(tiempoDomingo>= tiempoPeliculasScifi[i]) {
+				    		//añadimos esa pelicula a el array
+				    		peliculasPorGenero.add(peliculasScifi[i]);  	
+					    }
+		    			
+		    		}
+		    	
+			    }  
+		    	 			
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		      
+		    		    if(peliculasPorGenero.get(i).equals("") && i!=0){
+		    		    	peliculasPorGenero.remove(i);
+		    		    }
+		    	}
+		    	
+		    	resultadoCombo = new String[peliculasPorGenero.size()];
+		    		
+		    	for(int i=0;i<peliculasPorGenero.size();i++) {
+		    		resultadoCombo[i]=peliculasPorGenero.get(i);
+		    	}
+		    	
+		    	return resultadoCombo;
+		    		
+			}else {
+
 		    //En caso de que no encuentre nada, no se añadirá nada al array asique estará vacio
 		    return resultadoCombo; 
-		}
-		
-		public String[] mostrarPeliculasDomingo(String genero) {
-			 
-		    //Lo mismo para el domingo
-		    String resultadoCombo[];
-		    resultadoCombo = new String[5];
-		    
-		    if(genero.toUpperCase().equals("DRAMA")){
-			    //PELICULAS DRAMA
-		    	for(int i=0;i<tiempoPeliculasDrama.length;i++) {
-			    	
-			    	//Miramos que esa pelicula pueda entrar dentro del dia
-			    	if(tiempoDomingo>= tiempoPeliculasDrama[i]) {
-			    		
-			    		//añadimos esa pelicula a el array
-			    		resultadoCombo[i]=peliculasDrama[i];
-			    	
-				    }
-		    	
-			    }    	
-		    	return  resultadoCombo;
-		   
-		    //PELICULAS SCI-FI
-		    }else if(genero.toUpperCase().equals("SCIFI")) {
-		    	
-		    	for(int i=0;i<tiempoPeliculasScifi.length;i++) {
-			    	
-			    	if(tiempoDomingo>= tiempoPeliculasScifi[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasScifi[i];
-			    	
-				    }
-		    	
-		    	}
-		    	return  resultadoCombo;
-		   
-		    //PELICULAS COMEDIA
-		    }else if(genero.toUpperCase().equals("COMEDIA")) {
-		    	
-		    	for(int i=0;i<tiempoPeliculasComedia.length;i++) {
-			    	
-			    	if(tiempoDomingo>= tiempoPeliculasComedia[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasComedia[i];
-			    	
-				    }
-		    	
-		    	}
-		    	return  resultadoCombo;
-		    //PELICULAS TERROR
-		    }else if(genero.toUpperCase().equals("TERROR")) {
-		    	
-		    	for(int i=0;i<tiempoPeliculasTerror.length;i++) {
-			    	
-			    	if(tiempoDomingo>= tiempoPeliculasTerror[i]) {
-			    		    		
-			    		resultadoCombo[i]=peliculasTerror[i];
-			    	
-				    }
-		    	
-		    	}
-		    	return  resultadoCombo;
-		    
 		    }
-		    
-		    //En caso de que no encuentre nada, no se añadirá nada al array asique estará vacio
-		    return resultadoCombo; 
 		}
 		
+	
 		
 		
 		public String calcularTiempoSabado() {
@@ -207,17 +246,76 @@ public class SistemaMenu {
 			return total;
 		}
 	 
-		public void dramaSabadoCambiado(int indexSeleccionado) {
-			Ventanas.Menu ventanaMenu= new Ventanas.Menu();
+		public String generoCambio(int indexSeleccionado,String genero) {
+			String resultado="";
 			
-			int tiempoSeleccionado=tiempoPeliculasDrama[indexSeleccionado];
-        	tiempoSabado=tiempoSabado-tiempoSeleccionado;
-        	
-        	ventanaMenu.labelSabado.setText("S\u00E1bado: "+calcularTiempoSabado());
-        	
-        	tiempoSabado=tiempoSabado+tiempoSeleccionado;
+			if(genero.toUpperCase().equals("DRAMA")) {
+				
+				int tiempoSeleccionado=tiempoPeliculasDrama[indexSeleccionado];	
+				
+				
+				if(tiempoSabado-tiempoSeleccionado>0){
+				tiempoSabado=tiempoSabado-tiempoSeleccionado;
+				resultado="S\u00E1bado: "+calcularTiempoSabado();  	
+	        	
+	        	return resultado;
+	        	
+				}else {
+					resultado="S\u00E1bado: "+calcularTiempoSabado();
+					return resultado;
+				}
+	        	
+			}else if(genero.toUpperCase().equals("COMEDIA")){
+				
+				int tiempoSeleccionado=tiempoPeliculasComedia[indexSeleccionado];	
+				
+	
+				if(tiempoSabado-tiempoSeleccionado>0){
+					tiempoSabado=tiempoSabado-tiempoSeleccionado;
+					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
+		        	
+		        	return resultado;
+		        	
+					}else {
+						resultado="S\u00E1bado: "+calcularTiempoSabado();
+						return resultado;
+					}
+	        	
+			}else if(genero.toUpperCase().equals("TERROR")){
+				
+				int tiempoSeleccionado=tiempoPeliculasTerror[indexSeleccionado];	
+				
+				if(tiempoSabado-tiempoSeleccionado>0){
+					tiempoSabado=tiempoSabado-tiempoSeleccionado;
+					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
+		        	
+		        	return resultado;
+		        	
+					}else {
+						resultado="S\u00E1bado: "+calcularTiempoSabado();
+						return resultado;
+					}
+				
+			}else if(genero.toUpperCase().equals("SCIFI")){
+				
+				int tiempoSeleccionado=tiempoPeliculasScifi[indexSeleccionado];	
+				
+				if(tiempoSabado-tiempoSeleccionado>0){
+					tiempoSabado=tiempoSabado-tiempoSeleccionado;
+					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
+		        	
+		        	return resultado;
+		        	
+					}else {
+						resultado="S\u00E1bado: "+calcularTiempoSabado();
+						return resultado;
+					}
+				
+			}else {
+				return resultado;
+			}
+	
         	
 		}
 		
-
 }
