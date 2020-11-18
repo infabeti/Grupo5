@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Sistema.SistemaMenu;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,9 +35,21 @@ public class Menu extends JFrame implements ActionListener {
 
 	public JPanel contentPane;
 	public String drama;
-	public JComboBox<String> dramaSabado;
+	public JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado;
 	public JLabel labelSabado;
-	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+
+	//Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+
+		public JLabel getLabelSabado() {
+			return labelSabado;
+		}
+	
+		public void setLabelSabado(JLabel labelSabado) {
+			this.labelSabado = labelSabado;
+		}
+
+	public Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+
 	/**
 	 * Launch the application.
 	 */
@@ -83,7 +97,7 @@ public class Menu extends JFrame implements ActionListener {
 		dramaSabado=new JComboBox<String>();
 		dramaSabado.setBackground(Color.WHITE);
 		dramaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		dramaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("drama")));
+		dramaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("drama","sabado")));
 		dramaSabado.setBounds(66, 223, 366, 37);
 		contentPane.add(dramaSabado);	
 		dramaSabado.addActionListener(this);
@@ -98,37 +112,39 @@ public class Menu extends JFrame implements ActionListener {
 		lblNewLabel_1_1.setBounds(182, 262, 112, 31);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JComboBox comediaSabado = new JComboBox();
+		comediaSabado = new JComboBox();
 		comediaSabado.setBackground(Color.WHITE);
-		comediaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("comedia")));
+		comediaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("comedia","sabado")));
 		comediaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comediaSabado.setBounds(66, 305, 366, 37);
 		contentPane.add(comediaSabado);
-		
+		comediaSabado.addActionListener(this);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Terror");
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1_1_1.setBounds(687, 354, 112, 31);
 		contentPane.add(lblNewLabel_1_1_1);
 		
-		JComboBox terrorSabado = new JComboBox();
+		terrorSabado = new JComboBox();
 		terrorSabado.setBackground(Color.WHITE);
-		terrorSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("terror")));
+		terrorSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("terror","sabado")));
 		terrorSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		terrorSabado.setBounds(66, 397, 366, 37);
 		contentPane.add(terrorSabado);
+		terrorSabado.addActionListener(this);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Ciencia Ficci\u00F3n");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1_1_1_1.setBounds(164, 446, 170, 44);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
-		JComboBox cienciaSabado = new JComboBox();
+		cienciaSabado = new JComboBox();
 		cienciaSabado.setBackground(Color.WHITE);
-		cienciaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasSabado("scifi")));
+		cienciaSabado.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("scifi","sabado")));
 		cienciaSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cienciaSabado.setBounds(66, 502, 366, 37);
 		contentPane.add(cienciaSabado);
+		cienciaSabado.addActionListener(this);
 		
 		//LABEL DEL TIEMPO DOMINGO
 		JLabel lblNewLabel_1_2_1 = new JLabel("Domingo: "+sistemaMenu.calcularTiempoDomingo());
@@ -168,28 +184,28 @@ public class Menu extends JFrame implements ActionListener {
 		contentPane.add(btnSalir);
 		
 		JComboBox dramaDomingo = new JComboBox();
-		dramaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("drama")));
+		dramaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("drama","domingo")));
 		dramaDomingo.setBackground(Color.WHITE);
 		dramaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		dramaDomingo.setBounds(538, 223, 394, 37);
 		contentPane.add(dramaDomingo);
 		
 		JComboBox comediaDomingo = new JComboBox();
-		comediaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("comedia")));
+		comediaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("comedia","domingo")));
 		comediaDomingo.setBackground(Color.WHITE);
 		comediaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comediaDomingo.setBounds(538, 305, 394, 37);
 		contentPane.add(comediaDomingo);
 		
 		JComboBox terrorDomingo = new JComboBox();
-		terrorDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("terror")));
+		terrorDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("terror","domingo")));
 		terrorDomingo.setBackground(Color.WHITE);
 		terrorDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		terrorDomingo.setBounds(538, 397, 394, 37);
 		contentPane.add(terrorDomingo);
 		
 		JComboBox cienciaDomingo = new JComboBox();
-		cienciaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculasDomingo("scifi")));
+		cienciaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("scifi","domingo")));
 		cienciaDomingo.setBackground(Color.WHITE);
 		cienciaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cienciaDomingo.setBounds(538, 502, 394, 37);
@@ -224,9 +240,23 @@ public class Menu extends JFrame implements ActionListener {
 	}
 	
 	 public void actionPerformed(ActionEvent e){
-	        if (e.getSource()==dramaSabado) {
-	        	sistemaMenu.dramaSabadoCambiado(dramaSabado.getSelectedIndex());
+	        if (e.getSource()==dramaSabado) { 	
+	        	labelSabado.setText(sistemaMenu.generoCambio(dramaSabado.getSelectedIndex(),"DRAMA"));
 	        }
+	        
+	        if (e.getSource()==comediaSabado) { 	
+	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"COMEDIA"));
+	        }
+	        
+	        if (e.getSource()==terrorSabado) { 	
+	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"TERROR"));
+	        }
+	        
+	        if (e.getSource()==cienciaSabado) { 	
+	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"SCIFI"));
+	        }
+	        
+
 	    }
 	
 }
