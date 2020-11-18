@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Sistema.SistemaMenu;
 
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.BoxLayout;
@@ -23,13 +24,16 @@ import javax.swing.JTextPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 
-public class Resumen extends JFrame {
+public  class Resumen extends JFrame {
+	Menu menu = new Menu();
 	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+	
 	public JPanel contentPane;
 	public JTextField textField;
 	public JTextField textField_1;
-	public JTextArea listaSabado;	 
-	public JLabel resumenSabado;
+	//public static JTextArea listaSabado;	 
+	public static JLabel resumenSabado;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -148,19 +152,25 @@ public class Resumen extends JFrame {
 		btnNewButton_1_1.setBounds(550, 637, 187, 39);
 		contentPane.add(btnNewButton_1_1);
 		
-		JTextArea listaSabado = new JTextArea();
-		listaSabado.setBounds(77, 407, 263, 68);
-		contentPane.add(listaSabado);
+		JLabel labeldramaSab = new JLabel(menu.pelidramaSab);
+		labeldramaSab.setFont(new Font("Tahoma", Font.BOLD, 18));
+		labeldramaSab.setBounds(72, 170, 363, 39);
+		contentPane.add(labeldramaSab);
 		
-		JLabel resumenSabado = new JLabel();
+		JLabel labelcomeSab = new JLabel(menu.peliComeSab);
+		labelcomeSab.setFont(new Font("Tahoma", Font.BOLD, 18));
+		labelcomeSab.setBounds(72, 206, 363, 39);
+		contentPane.add(labelcomeSab);
 		
-		//Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
-		//String X = getText(sistemaMenu.peliculasDrama);
-		//resumenSabado.setText(sistemaMenu.peliculasDrama);
+		JLabel labelterrorSab = new JLabel(menu.peliTerrorSab);
+		labelterrorSab.setFont(new Font("Tahoma", Font.BOLD, 18));
+		labelterrorSab.setBounds(72, 263, 363, 39);
+		contentPane.add(labelterrorSab);
 		
-		resumenSabado.setBounds(90, 190, 227, 151);
-		contentPane.add(resumenSabado);
-		
-		
+		JLabel labelCienciaSab = new JLabel(menu.peliCienciaSab);
+		labelCienciaSab.setFont(new Font("Tahoma", Font.BOLD, 18));
+		labelCienciaSab.setBounds(72, 315, 363, 39);
+		contentPane.add(labelCienciaSab);
+			
 	}
 }

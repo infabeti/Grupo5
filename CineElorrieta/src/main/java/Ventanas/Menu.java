@@ -32,10 +32,11 @@ import javax.swing.SwingConstants;
 
 public class Menu extends JFrame implements ActionListener {
 
-
+	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+	//Resumen resumen = new Resumen();
 
 	public JPanel contentPane;
-	public static String drama;
+	public static String pelidramaSab,peliComeSab, peliCienciaSab, peliTerrorSab;
 	public static JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado;
 	public JLabel labelSabado;
 	
@@ -47,9 +48,7 @@ public class Menu extends JFrame implements ActionListener {
 		public void setLabelSabado(JLabel labelSabado) {
 			this.labelSabado = labelSabado;
 		}
-	Sistema.SistemaResumen sistemaResumen = new Sistema.SistemaResumen();
-	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
-
+		
 	/**
 	 * Launch the application.
 	 */
@@ -101,6 +100,9 @@ public class Menu extends JFrame implements ActionListener {
 		dramaSabado.setBounds(66, 223, 366, 37);
 		contentPane.add(dramaSabado);	
 		dramaSabado.addActionListener(this);
+
+		 
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Drama");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -215,8 +217,8 @@ public class Menu extends JFrame implements ActionListener {
 		
 		JButton btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-					sistemaResumen.peliculaElegida();
+			public void actionPerformed(ActionEvent e) {
+				//System.out.println(peli+ "hola");
 				 	Resumen resumen =new Resumen();
 				 	resumen.setBounds(0,0,1024,768);
 				 	resumen.setLocationRelativeTo(null);
@@ -244,21 +246,24 @@ public class Menu extends JFrame implements ActionListener {
 	
 	 public void actionPerformed(ActionEvent e){
 	        if (e.getSource()==dramaSabado) { 	
-	        	labelSabado.setText(sistemaMenu.generoCambio(dramaSabado.getSelectedIndex(),"DRAMA"));
+	        	labelSabado.setText(sistemaMenu.generoCambio(dramaSabado.getSelectedIndex(),"DRAMA"));           	
+	        	pelidramaSab = String.valueOf(dramaSabado.getSelectedItem());
 	        }
 	        
 	        if (e.getSource()==comediaSabado) { 	
 	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"COMEDIA"));
+	        	peliComeSab = String.valueOf(comediaSabado.getSelectedItem());
 	        }
 	        
 	        if (e.getSource()==terrorSabado) { 	
 	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"TERROR"));
+	        	peliTerrorSab = String.valueOf(terrorSabado.getSelectedItem());
 	        }
 	        
 	        if (e.getSource()==cienciaSabado) { 	
 	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"SCIFI"));
+	        	peliCienciaSab = String.valueOf(cienciaSabado.getSelectedItem());
 	        }
-	        
 
 	    }
 	

@@ -18,7 +18,7 @@ public class SistemaMenu {
 	//public int tiempoDomingo=360;
 
 	
-	public int tiempoSabado=400;
+	public int tiempoSabado=150;
 	public int tiempoDomingo=124;
 
 	
