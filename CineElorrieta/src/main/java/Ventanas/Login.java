@@ -82,7 +82,7 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 		 }
 		 //SALIR
 		 if(e.getSource()==salir){	      
-			
+			System.exit(0);
 			 
 		 }		 
 	 }

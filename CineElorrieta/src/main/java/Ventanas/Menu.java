@@ -30,12 +30,12 @@ import javax.swing.SwingConstants;
 
 public class Menu extends JFrame implements ActionListener {
 
-//	public ElegirPeliculas peliculas = new ElegirPeliculas();
+
 	public JPanel contentPane;
 	public String drama;
 	public JComboBox<String> dramaSabado;
 	public JLabel labelSabado;
-	public Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
 	/**
 	 * Launch the application.
 	 */
