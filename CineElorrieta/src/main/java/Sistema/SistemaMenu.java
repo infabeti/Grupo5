@@ -8,7 +8,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import Ventanas.Login;
 import Ventanas.Menu;
-import Ventanas.VentanaResumen;
+import Ventanas.Resumen;
 
 public class SistemaMenu {
 	
@@ -23,7 +23,7 @@ public class SistemaMenu {
 
 	
 	//lista de peliculas con su tiempo por genero
-	public String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
+	public static String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
 	public int tiempoPeliculasDrama[]= {0,116,197,143,133};
    
     String peliculasScifi[]= {"","2001:Odisea en el espacio: 2 h 22 min","La novia de Frankestein: 1 h 15 min",

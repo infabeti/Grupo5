@@ -33,13 +33,13 @@ import javax.swing.SwingConstants;
 public class Menu extends JFrame implements ActionListener {
 
 
+
 	public JPanel contentPane;
-	public String drama;
-	public JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado;
+	public static String drama;
+	public static JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado;
 	public JLabel labelSabado;
-
-	//Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
-
+	
+	
 		public JLabel getLabelSabado() {
 			return labelSabado;
 		}
@@ -47,8 +47,8 @@ public class Menu extends JFrame implements ActionListener {
 		public void setLabelSabado(JLabel labelSabado) {
 			this.labelSabado = labelSabado;
 		}
-
-	public Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
+	Sistema.SistemaResumen sistemaResumen = new Sistema.SistemaResumen();
+	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
 
 	/**
 	 * Launch the application.
@@ -175,7 +175,9 @@ public class Menu extends JFrame implements ActionListener {
 		JButton btnSalir = new JButton("SALIR");
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnSalir.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
+				
 				JOptionPane.showMessageDialog(null, "La operación se ha cancelado.");
 				System.exit(0);
 			}
@@ -214,7 +216,8 @@ public class Menu extends JFrame implements ActionListener {
 		JButton btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 	VentanaResumen resumen =new VentanaResumen();
+					sistemaResumen.peliculaElegida();
+				 	Resumen resumen =new Resumen();
 				 	resumen.setBounds(0,0,1024,768);
 				 	resumen.setLocationRelativeTo(null);
 				 	resumen.setVisible(true);

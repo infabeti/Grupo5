@@ -23,7 +23,7 @@ import javax.swing.JTextPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 
-public class VentanaResumen extends JFrame {
+public class Resumen extends JFrame {
 	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
 	public JPanel contentPane;
 	public JTextField textField;
@@ -34,7 +34,7 @@ public class VentanaResumen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaResumen frame = new VentanaResumen();
+					Resumen frame = new Resumen();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -47,7 +47,7 @@ public class VentanaResumen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaResumen() {
+	public Resumen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024,768);
 		contentPane = new JPanel();
