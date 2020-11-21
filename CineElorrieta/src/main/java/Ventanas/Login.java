@@ -7,6 +7,7 @@ import java.awt.event.FocusListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -26,16 +27,17 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	private JLabel lblCineElorrieta;
 		
 	public Login(){
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		adminLabel = new JLabel("LOGIN:");
-		adminLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		adminLabel.setBounds(373, 168, 122, 30);
+		adminLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		getContentPane().add(adminLabel);
 		
 		passLabel = new JLabel("CONTRASEÑA:");
-		passLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		passLabel.setBounds(322, 209, 162, 48);
+		passLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		getContentPane().add(passLabel);
 		
 		adminText=new JTextField();
@@ -49,26 +51,26 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 	    getContentPane().add(passText);
 
 	    entrar=new JButton("ENTRAR");
-	    entrar.setFont(new Font("Tahoma", Font.BOLD, 20));
 	    entrar.setBounds(574, 338, 131, 33);
+	    entrar.setFont(new Font("Tahoma", Font.BOLD, 20));
 	    entrar.addActionListener(this);
 	    getContentPane().add(entrar);  
 	    
 	    salir=new JButton("SALIR");
-	    salir.setFont(new Font("Tahoma", Font.BOLD, 20));
 	    salir.setBounds(373, 338, 100, 33);
+	    salir.setFont(new Font("Tahoma", Font.BOLD, 20));
 	    salir.addActionListener(this);
 	    getContentPane().add(salir);
 	    
-	    mensaje=new JLabel("*INTROUCE EL ADMINISTRADOR Y CONTRASEÑA CORRECTOS");
+	    mensaje=new JLabel("*INTRODUCE EL ADMINISTRADOR Y CONTRASEÑA CORRECTOS");
 	    mensaje.setBounds(355, 400, 350, 25);
 		mensaje.setForeground(Color.RED);
 		mensaje.setVisible(false);
 		getContentPane().add(mensaje);
 		
 		lblCineElorrieta = new JLabel("CINE ELORRIETA");
-		lblCineElorrieta.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblCineElorrieta.setBounds(384, 61, 240, 30);
+		lblCineElorrieta.setFont(new Font("Tahoma", Font.BOLD, 26));
 		getContentPane().add(lblCineElorrieta);
 	    
 	}
@@ -82,7 +84,8 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 		 }
 		 //SALIR
 		 if(e.getSource()==salir){	      
-			System.exit(0);
+			 JOptionPane.showMessageDialog(null, "La operación se ha cancelado.");
+			 System.exit(0);
 			 
 		 }		 
 	 }

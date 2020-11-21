@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import Ventanas.Login;
 import Ventanas.Menu;
@@ -16,20 +17,25 @@ public class SistemaLogin {
 		
 		//STRINGS PARA COMPROBAR
 		 String administrador="admin",password="1234";
-		 Login ventanaLogin= new Login();
+		 Login ventanaLogin = new Login();
 		 
 		 if(admin.equals(administrador) && pass.equals(password)) {	
 			 //CORRECTO	
-			System.out.println("Correcto");
+			//System.out.println("Correcto");
+			
 			Menu menuPeli = new Menu();
 			menuPeli.setBounds(0,0,1024,768);
 			menuPeli.setLocationRelativeTo(null);
 			menuPeli.setVisible(true);
 			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaLogin.setVisible(false);
+			//dispose();
+			
 	        
-		 }else{
+		 } else{
 			 //INCORRECTO
-			System.out.println("Incorrecto");
+				 JOptionPane.showMessageDialog(null, "*INTRODUCE EL ADMINISTRADOR Y CONTRASEÑA CORRECTOS");
+			
 			ventanaLogin.mensaje.setVisible(true);
 		 }     	  
 	

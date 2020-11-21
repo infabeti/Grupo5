@@ -16,18 +16,18 @@ public class BienVenido extends JFrame {
     	getContentPane().setLayout(null);
     	    	
         bienvenido=new JLabel("BIENVENIDO");
-        bienvenido.setBounds(192,237,400,60);
+        bienvenido.setBounds(304,250,400,60);
         bienvenido.setFont(new Font("Tahoma", Font.BOLD, 60));
         getContentPane().add(bienvenido);
         
         JLabel bienvenido_1 = new JLabel("AL");
         bienvenido_1.setFont(new Font("Tahoma", Font.BOLD, 60));
-        bienvenido_1.setBounds(342, 344, 100, 60);
+        bienvenido_1.setBounds(454, 344, 100, 60);
         getContentPane().add(bienvenido_1);
         
         JLabel bienvenido_2 = new JLabel("CINE ELORRIETA");
         bienvenido_2.setFont(new Font("Tahoma", Font.BOLD, 60));
-        bienvenido_2.setBounds(110, 434, 564, 60);
+        bienvenido_2.setBounds(222, 434, 564, 60);
         getContentPane().add(bienvenido_2);
 
         //cronometro de 3segundos que lleva automaticamente a la siguiente ventana

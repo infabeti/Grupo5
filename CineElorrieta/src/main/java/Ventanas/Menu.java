@@ -22,6 +22,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 import javax.swing.JToolBar;
 import javax.swing.JSeparator;
@@ -33,11 +35,12 @@ import javax.swing.SwingConstants;
 public class Menu extends JFrame implements ActionListener {
 
 	Sistema.SistemaMenu sistemaMenu = new Sistema.SistemaMenu();
-	//Resumen resumen = new Resumen();
-
+	
 	public JPanel contentPane;
 	public static String pelidramaSab,peliComeSab, peliCienciaSab, peliTerrorSab;
-	public static JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado;
+	public static String pelidramaDomin,peliComeDomin, peliCienciaDomin, peliTerrorDomin;
+	public static JComboBox<String> dramaSabado,comediaSabado,terrorSabado,cienciaSabado, dramaDomingo,comediaDomingo,terrorDomingo,cienciaDomingo;
+	//public static JComboBox<String> d;
 	public JLabel labelSabado;
 	
 	
@@ -181,44 +184,61 @@ public class Menu extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				JOptionPane.showMessageDialog(null, "La operación se ha cancelado.");
-				System.exit(0);
+				//System.exit(0);
+				
+				Timer cronom = new Timer();
+		        cronom.schedule(new TimerTask() {
+		        public void run(){ // método que llevará a la ventana 
+		      
+		        BienVenido bienvenido =new BienVenido();
+		        bienvenido.setBounds(0,0,1024,768);
+		        bienvenido.setLocationRelativeTo(null);
+		        bienvenido.setVisible(true);
+		        bienvenido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        dispose();
+		            
+		        }},2000);
 			}
 		});
 		btnSalir.setBounds(66, 619, 112, 37);
 		contentPane.add(btnSalir);
 		
-		JComboBox dramaDomingo = new JComboBox();
+		dramaDomingo = new JComboBox();
 		dramaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("drama","domingo")));
 		dramaDomingo.setBackground(Color.WHITE);
 		dramaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		dramaDomingo.setBounds(538, 223, 394, 37);
 		contentPane.add(dramaDomingo);
+		dramaDomingo.addActionListener(this);
 		
-		JComboBox comediaDomingo = new JComboBox();
+		comediaDomingo = new JComboBox();
 		comediaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("comedia","domingo")));
 		comediaDomingo.setBackground(Color.WHITE);
 		comediaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comediaDomingo.setBounds(538, 305, 394, 37);
 		contentPane.add(comediaDomingo);
+		comediaDomingo.addActionListener(this);
 		
-		JComboBox terrorDomingo = new JComboBox();
+		terrorDomingo = new JComboBox();
 		terrorDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("terror","domingo")));
 		terrorDomingo.setBackground(Color.WHITE);
 		terrorDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		terrorDomingo.setBounds(538, 397, 394, 37);
 		contentPane.add(terrorDomingo);
+		terrorDomingo.addActionListener(this);
 		
-		JComboBox cienciaDomingo = new JComboBox();
+		cienciaDomingo = new JComboBox();
 		cienciaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("scifi","domingo")));
 		cienciaDomingo.setBackground(Color.WHITE);
 		cienciaDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cienciaDomingo.setBounds(538, 502, 394, 37);
 		contentPane.add(cienciaDomingo);
+		cienciaDomingo.addActionListener(this);
+		
 		
 		JButton btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println(peli+ "hola");
 				 	Resumen resumen =new Resumen();
 				 	resumen.setBounds(0,0,1024,768);
 				 	resumen.setLocationRelativeTo(null);
@@ -253,6 +273,7 @@ public class Menu extends JFrame implements ActionListener {
 	        if (e.getSource()==comediaSabado) { 	
 	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"COMEDIA"));
 	        	peliComeSab = String.valueOf(comediaSabado.getSelectedItem());
+	        	//System.out.println(peliComeSab);
 	        }
 	        
 	        if (e.getSource()==terrorSabado) { 	
@@ -264,6 +285,36 @@ public class Menu extends JFrame implements ActionListener {
 	        	labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"SCIFI"));
 	        	peliCienciaSab = String.valueOf(cienciaSabado.getSelectedItem());
 	        }
+	        
+	        if (e.getSource()==dramaDomingo) { 	
+	        	//labelSabado.setText(sistemaMenu.generoCambio(dramaSabado.getSelectedIndex(),"DRAMA"));           	
+	        	pelidramaDomin = String.valueOf(dramaDomingo.getSelectedItem());
+	        	
+	      
+	        }
+	        
+	        if (e.getSource()==comediaDomingo) { 	
+	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"COMEDIA"));
+	        	peliComeDomin = String.valueOf(comediaDomingo.getSelectedItem());
+	        	//System.out.println(peliComeDomin);
+	        }
+	        
+	        if (e.getSource()==terrorDomingo) { 	
+	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"TERROR"));
+	        	peliTerrorDomin = String.valueOf(terrorDomingo.getSelectedItem());
+	        }
+	        
+	        if (e.getSource()==cienciaDomingo) { 	
+	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"SCIFI"));
+	        	peliCienciaDomin = String.valueOf(cienciaDomingo.getSelectedItem());
+	        }
+	        
+	        
+	        
+	        
+	        
+	        
+	        
 
 	    }
 	
