@@ -19,6 +19,7 @@ public class SistemaLogin {
 		 String administrador="admin",password="1234";
 		 Ventanas.Login ventanaLogin = new Ventanas.Login();
 		 SistemaMenu sistemaMenu = new SistemaMenu();
+		 Menu ventanaMenu = new Menu();
 		 
 		 if(admin.equals(administrador) && pass.equals(password)) {	
 			 //CORRECTO	
@@ -26,8 +27,8 @@ public class SistemaLogin {
 			sistemaMenu.tiempoSabado=480;
 			sistemaMenu.tiempoDomingo=360;
 			
-			sistemaMenu.tiempoEscogidoSabado=0;
-			sistemaMenu.tiempoEscogidoDomingo=0;
+			sistemaMenu.tiempoFinalSabado=0;
+			sistemaMenu.tiempoFinalDomingo=0;
 			
 			sistemaMenu.peliDramaSabBloqueado=false;
 			sistemaMenu.peliComeSabBloqueado=false; 
@@ -37,6 +38,15 @@ public class SistemaLogin {
 			sistemaMenu.peliComeDominBloqueado=false;
 			sistemaMenu.peliCienciaDominBloqueado=false;
 			sistemaMenu.peliTerrorDominBloqueado=false;	
+			
+			ventanaMenu.pelidramaSab="";
+			ventanaMenu.peliComeSab="";
+			ventanaMenu.peliCienciaSab="";
+			ventanaMenu.peliTerrorSab="";
+			ventanaMenu.pelidramaDomin="";
+			ventanaMenu.peliComeDomin="";
+			ventanaMenu.peliCienciaDomin="";
+			ventanaMenu.peliTerrorDomin="";
 			
 			Menu menuPeli = new Menu();
 			menuPeli.setBounds(0,0,1024,768);
