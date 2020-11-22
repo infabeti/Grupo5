@@ -18,7 +18,8 @@ public class SistemaMenu {
 	public static int tiempoDomingo=360;
 	public int tiempoEscogidoSabado=0;
 	public int tiempoEscogidoDomingo=0;
-	
+	public static boolean peliDramaSabBloqueado,peliComeSabBloqueado, peliCienciaSabBloqueado, peliTerrorSabBloqueado=false;	
+	public static boolean peliDramaDominBloqueado,peliComeDominBloqueado, peliCienciaDominBloqueado, peliTerrorDominBloqueado=false;	
 	//lista de peliculas con su tiempo por genero
 	public static String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
 	public int tiempoPeliculasDrama[]= {0,116,197,143,133};
@@ -413,5 +414,44 @@ public class SistemaMenu {
 			
 			return completo;
 		}
+		
+		public void bloquearGenero() {
+			Menu ventanaMenu = new Menu();
+			
+			//SABADO
+			if(ventanaMenu.pelidramaSabFinal!="") {
+				peliDramaSabBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliComeSabFinal!="") {
+				peliComeSabBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliCienciaSabFinal!="") {
+				peliCienciaSabBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliTerrorSabFinal!="") {
+				peliTerrorSabBloqueado=true;
+			}
+			
+			//DOMINGO
+			if(ventanaMenu.pelidramaDominFinal!="") {
+				peliDramaDominBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliComeDominFinal!="") {
+				peliComeDominBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliCienciaDominFinal!="") {
+				peliCienciaDominBloqueado=true;
+			}
+			
+			if(ventanaMenu.peliTerrorDominFinal!="") {
+				peliTerrorDominBloqueado=true;
+			}
+		}
+		
 		
 }

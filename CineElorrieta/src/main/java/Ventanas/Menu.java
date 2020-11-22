@@ -66,7 +66,6 @@ public class Menu extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu() {
-		sistemaMenu.domingoBloqueado();
 		setResizable(false);
 		setBackground(Color.RED);
 		setTitle("Menu");
@@ -96,9 +95,6 @@ public class Menu extends JFrame implements ActionListener {
 		dramaSabado.setBounds(66, 223, 366, 37);
 		contentPane.add(dramaSabado);	
 		dramaSabado.addActionListener(this);
-
-		 
-		
 		
 		JLabel lblNewLabel_1 = new JLabel("Drama");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -240,8 +236,40 @@ public class Menu extends JFrame implements ActionListener {
 			terrorSabado.disable();
 			cienciaSabado.disable();
 		}
-	
 		
+		//Para bloquear generos ya escogidos
+ 		if(sistemaMenu.peliDramaSabBloqueado==true) {
+			dramaSabado.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliComeSabBloqueado==true) {
+			comediaSabado.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliTerrorSabBloqueado==true) {
+			terrorSabado.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliCienciaSabBloqueado==true) {
+			cienciaSabado.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliDramaDominBloqueado==true) {
+			dramaDomingo.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliComeDominBloqueado==true) {
+			comediaDomingo.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliTerrorDominBloqueado==true) {
+			terrorDomingo.disable();
+		}
+ 		
+ 		if(sistemaMenu.peliCienciaDominBloqueado==true) {
+			cienciaDomingo.disable();
+		}
+			
 		btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnSiguiente.setBounds(771, 619, 161, 37);
@@ -266,41 +294,32 @@ public class Menu extends JFrame implements ActionListener {
 	        	pelidramaSab = String.valueOf(dramaSabado.getSelectedItem());
 	        }
 	        
-	        if (e.getSource()==comediaSabado) { 	
-	        	
+	        if (e.getSource()==comediaSabado) { 	 	
 	        	peliComeSab = String.valueOf(comediaSabado.getSelectedItem());
-	        	//System.out.println(peliComeSab);
 	        }
 	        
-	        if (e.getSource()==terrorSabado) { 	
-	        	
+	        if (e.getSource()==terrorSabado) { 		
 	        	peliTerrorSab = String.valueOf(terrorSabado.getSelectedItem());
 	        }
 	        
 	        if (e.getSource()==cienciaSabado) { 	
-	        
 	        	peliCienciaSab = String.valueOf(cienciaSabado.getSelectedItem());
 	        }
 	        
-	        if (e.getSource()==dramaDomingo) { 	
-	        	//labelSabado.setText(sistemaMenu.generoCambio(dramaSabado.getSelectedIndex(),"DRAMA"));           	
+	        if (e.getSource()==dramaDomingo) { 	        	
 	        	pelidramaDomin = String.valueOf(dramaDomingo.getSelectedItem());
 	        	
 	        }
 	        
 	        if (e.getSource()==comediaDomingo) { 	
-	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"COMEDIA"));
 	        	peliComeDomin = String.valueOf(comediaDomingo.getSelectedItem());
-	        	//System.out.println(peliComeDomin);
 	        }
 	        
 	        if (e.getSource()==terrorDomingo) { 	
-	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"TERROR"));
 	        	peliTerrorDomin = String.valueOf(terrorDomingo.getSelectedItem());
 	        }
 	        
 	        if (e.getSource()==cienciaDomingo) { 	
-	        	//labelSabado.setText(sistemaMenu.generoCambio(comediaSabado.getSelectedIndex(),"SCIFI"));
 	        	peliCienciaDomin = String.valueOf(cienciaDomingo.getSelectedItem());
 	        }
 	        
@@ -316,7 +335,8 @@ public class Menu extends JFrame implements ActionListener {
 	        	peliComeDominFinal = String.valueOf(comediaDomingo.getSelectedItem());
 	        	
 	        	sistemaMenu.tiempoPeliculas();
-	        	sistemaMenu.continuarResumen();  	
+	        	sistemaMenu.continuarResumen();  
+	        	sistemaMenu.bloquearGenero();
 	        }
 
 	    }
