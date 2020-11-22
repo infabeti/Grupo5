@@ -5,6 +5,8 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import Ventanas.Login;
 import Ventanas.Menu;
@@ -12,15 +14,9 @@ import Ventanas.Resumen;
 
 public class SistemaMenu {
 	
-
-	//Ventanas.VentanaResumen resumen = new Ventanas.VentanaResumen();
-	//public int tiempoSabado=480;
-	//public int tiempoDomingo=360;
-
-	
-	public int tiempoSabado=150;
-	public int tiempoDomingo=124;
-
+	public static int tiempoSabado=480;
+	public static int tiempoDomingo=360;
+	public int tiempoEscogidoSabado=0;
 	
 	//lista de peliculas con su tiempo por genero
 	public static String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
@@ -36,13 +32,8 @@ public class SistemaMenu {
     String peliculasTerror[]= {"","Psicosis: 1 h 49 min","El resplandor: 2 h 26 min","Dracula: 2 h 35 min","Cisne negro: 1 h 50 min"};
     int tiempoPeliculasTerror[]= {0,109,146,155,110};
 	
-		public String[] mostrarPeliculas(String genero,String dia) {
+	public String[] mostrarPeliculas(String genero,String dia) {
 		 
-
-		    //Creamos un array con las peliculas que vamos a mostrar
-		    //final String resultadoCombo[];
-		   // resultadoCombo = new String[5];
-
 		    //Creamos un ArrayList con las peliculas que vamos a mostrar
 			ArrayList<String> peliculasPorGenero = new ArrayList<String>();
 			String[] resultadoCombo= {};
@@ -229,11 +220,11 @@ public class SistemaMenu {
 			
 			//Hacemos los calculos para calcularlo desde los minutos y lo mostramos como nos convenga
 			if(minutos==0) {
-				total=""+horas+" horas";
+				total=""+horas+" h";
 				
 			}else {
 				
-				total=""+horas+" horas y "+minutos+"min";
+				total=""+horas+" h y "+minutos+"m";
 			}
 			
 			return total;
@@ -258,86 +249,60 @@ public class SistemaMenu {
 			
 			return total;
 		}
-	 
-		public String generoCambio(int indexSeleccionado,String genero) {
-			String resultado="";
+		
+		public void tiempoPeliculas() {
+			Menu ventanaMenu = new Menu();
+			tiempoEscogidoSabado=0;
 			
-
-		//	int tiempoSeleccionado=tiempoPeliculasDrama[indexSeleccionado];
-        	//tiempoSabado=tiempoSabado-tiempoSeleccionado;
-        	
-        	//ventanaMenu.labelSabado.setText("S\u00E1bado: "+calcularTiempoSabado());
-        	
-        	        	
-        	//tiempoSabado=tiempoSabado+tiempoSeleccionado;
-
-			if(genero.toUpperCase().equals("DRAMA")) {
-				
-				int tiempoSeleccionado=tiempoPeliculasDrama[indexSeleccionado];	
-				
-				
-				if(tiempoSabado-tiempoSeleccionado>0){
-				tiempoSabado=tiempoSabado-tiempoSeleccionado;
-				resultado="S\u00E1bado: "+calcularTiempoSabado();  	
-	        	
-	        	return resultado;
-	        	
-				}else {
-					resultado="S\u00E1bado: "+calcularTiempoSabado();
-					return resultado;
+			//DRAMA SABADO
+			for(int i=0;i<peliculasDrama.length;i++) {
+				if(ventanaMenu.pelidramaSabFinal==peliculasDrama[i]){
+					tiempoEscogidoSabado=tiempoEscogidoSabado+tiempoPeliculasDrama[i];
 				}
-	        	
-			}else if(genero.toUpperCase().equals("COMEDIA")){
+			}
+			
+			//COMEDIA SABADO
+			for(int i=0;i<peliculasComedia.length;i++) {
+				if(ventanaMenu.peliComeSabFinal==peliculasComedia[i]){
+					tiempoEscogidoSabado=tiempoEscogidoSabado+tiempoPeliculasComedia[i];
+				}
+			}
+			
+			//SCIFI SABADO
+			for(int i=0;i<peliculasScifi.length;i++) {
+				if(ventanaMenu.peliCienciaSabFinal==peliculasScifi[i]){
+					tiempoEscogidoSabado=tiempoEscogidoSabado+tiempoPeliculasScifi[i];
+				}
+			}
+			
+			//TERROR SABADO
+			for(int i=0;i<peliculasTerror.length;i++) {
+				if(ventanaMenu.peliTerrorSabFinal==peliculasTerror[i]){
+					tiempoEscogidoSabado=tiempoEscogidoSabado+tiempoPeliculasTerror[i];
+				}
+			}
 				
-				int tiempoSeleccionado=tiempoPeliculasComedia[indexSeleccionado];	
-				
-	
-				if(tiempoSabado-tiempoSeleccionado>0){
-					tiempoSabado=tiempoSabado-tiempoSeleccionado;
-					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
-		        	
-		        	return resultado;
-		        	
-					}else {
-						resultado="S\u00E1bado: "+calcularTiempoSabado();
-						return resultado;
-					}
-	        	
-			}else if(genero.toUpperCase().equals("TERROR")){
-				
-				int tiempoSeleccionado=tiempoPeliculasTerror[indexSeleccionado];	
-				
-				if(tiempoSabado-tiempoSeleccionado>0){
-					tiempoSabado=tiempoSabado-tiempoSeleccionado;
-					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
-		        	
-		        	return resultado;
-		        	
-					}else {
-						resultado="S\u00E1bado: "+calcularTiempoSabado();
-						return resultado;
-					}
-				
-			}else if(genero.toUpperCase().equals("SCIFI")){
-				
-				int tiempoSeleccionado=tiempoPeliculasScifi[indexSeleccionado];	
-				
-				if(tiempoSabado-tiempoSeleccionado>0){
-					tiempoSabado=tiempoSabado-tiempoSeleccionado;
-					resultado="S\u00E1bado: "+calcularTiempoSabado();  	
-		        	
-		        	return resultado;
-		        	
-					}else {
-						resultado="S\u00E1bado: "+calcularTiempoSabado();
-						return resultado;
-					}
+			
+					
+		}
+		
+		public void continuarResumen() {
+					
+			if(tiempoEscogidoSabado>tiempoSabado) {
+				//No continuamos
+				JOptionPane.showMessageDialog(null, "HAS SUPERADO EL TIEMPO DISPONIBLE DEL SABADO");
 				
 			}else {
-				return resultado;
+				//Continuamos
+				tiempoSabado=tiempoSabado-tiempoEscogidoSabado;
+				Resumen resumen =new Resumen();
+			 	resumen.setBounds(0,0,1024,768);
+			 	resumen.setLocationRelativeTo(null);
+			 	resumen.setVisible(true);
+			 	resumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
-	
-
 		}
+		
+	 
 		
 }

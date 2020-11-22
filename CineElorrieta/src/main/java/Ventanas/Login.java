@@ -12,7 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-public class Login extends JFrame implements ActionListener,FocusListener{
+public class Login extends JFrame implements ActionListener{
 	
 	//LABELS
 	public JLabel adminLabel,passLabel,mensaje;
@@ -42,12 +42,10 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 		
 		adminText=new JTextField();
 		adminText.setBounds(505, 168, 126, 30);
-		adminText.addFocusListener(this);
 	    getContentPane().add(adminText);
 	    
 	    passText=new JPasswordField();
 	    passText.setBounds(505, 222, 126, 30);
-	    passText.addFocusListener(this);
 	    getContentPane().add(passText);
 
 	    entrar=new JButton("ENTRAR");
@@ -90,32 +88,6 @@ public class Login extends JFrame implements ActionListener,FocusListener{
 		 }		 
 	 }
 	
-	//FOCUS
-	@Override
-	public void focusGained(FocusEvent e) {
-		
-		if(e.getSource()==adminText){
-			 /*remove(mensaje);
-			 repaint();
-			 revalidate();*/
-			
-		}
-		
-		if(e.getSource()==passText){
-			 /*remove(mensaje);
-			 repaint();
-			 revalidate();*/
-			
-		}
-		 			
-	}
-
-	//QUITAR FOCUS
-	@Override
-	public void focusLost(FocusEvent e) {
-		
-	}
-
 	public static void main(String[] ar){
 		Login login=new Login ();
 		login.setBounds(0, 0, 1024,768);
