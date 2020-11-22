@@ -48,13 +48,16 @@ public class SistemaLogin {
 			ventanaMenu.peliCienciaDomin="";
 			ventanaMenu.peliTerrorDomin="";
 			
+			ventanaLogin.setVisible(false);
+			ventanaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
+			ventanaLogin.dispose();
 			Menu menuPeli = new Menu();
 			menuPeli.setBounds(0,0,1024,768);
 			menuPeli.setLocationRelativeTo(null);
 			menuPeli.setVisible(true);
 			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			ventanaLogin.setVisible(false);
-			ventanaLogin.dispose();
+			
 			
 	        
 		 } else{

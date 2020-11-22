@@ -27,7 +27,7 @@ public class Login extends JFrame implements ActionListener{
 	private JLabel lblCineElorrieta;
 		
 	public Login(){
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		adminLabel = new JLabel("LOGIN:");
@@ -89,7 +89,7 @@ public class Login extends JFrame implements ActionListener{
 	 }
 	
 	public static void main(String[] ar){
-		Login login=new Login ();
+		Login login =new Login ();
 		login.setBounds(0, 0, 1024,768);
 		login.setLocationRelativeTo(null);
 		login.setVisible(true);    

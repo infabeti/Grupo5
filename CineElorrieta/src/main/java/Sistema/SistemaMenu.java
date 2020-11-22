@@ -33,8 +33,8 @@ public class SistemaMenu {
     String peliculasComedia[]= {"","Scary Movie: 1 h 30 min","El gran Lebowsky: 1 h 59 min","La vida de Brian: 1 h 34 min","Aterriza como puedas:  1 h 28 min"};
     int tiempoPeliculasComedia[]= {0,90,119,94,88};
     
-    String peliculasTerror[]= {"","Psicosis: 1 h 49 min","El resplandor: 2 h 26 min","Dracula: 2 h 35 min","Cisne negro: 1 h 50 min"};
-    int tiempoPeliculasTerror[]= {0,109,146,155,110};
+    String peliculasTerror[]= {"","Psicosis: 1 h 28 min","El resplandor: 2 h 26 min","Dracula: 2 h 35 min","Cisne negro: 1 h 50 min"};
+    int tiempoPeliculasTerror[]= {0,88,146,155,110};
 	
 	public String[] mostrarPeliculas(String genero,String dia) {
 		 
