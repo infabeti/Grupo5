@@ -125,7 +125,7 @@ public  class Resumen extends JFrame {
 		lblNewLabel_1.setBounds(43, 505, 75, 39);
 		contentPane.add(lblNewLabel_1);
 		
-		totalSabado = new JTextField(sistemaMenu.calcularTiempoSabado());
+		totalSabado = new JTextField(sistemaMenu.calcularTiempoFinalSabado());
 		totalSabado.setHorizontalAlignment(SwingConstants.CENTER);
 		totalSabado.setFont(new Font("Tahoma", Font.BOLD, 18));
 		totalSabado.setEditable(false);
@@ -153,7 +153,7 @@ public  class Resumen extends JFrame {
 		labTotalSab.setBounds(567, 498, 75, 39);
 		contentPane.add(labTotalSab);
 		
-		totaldomingo = new JTextField(sistemaMenu.calcularTiempoDomingo());
+		totaldomingo = new JTextField(sistemaMenu.calcularTiempoFinalDomingo());
 		totaldomingo.setHorizontalAlignment(SwingConstants.CENTER);
 		totaldomingo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		totaldomingo.setEditable(false);
