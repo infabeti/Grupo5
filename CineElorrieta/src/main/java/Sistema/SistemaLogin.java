@@ -18,10 +18,12 @@ public class SistemaLogin {
 		//STRINGS PARA COMPROBAR
 		 String administrador="admin",password="1234";
 		 Login ventanaLogin = new Login();
+		 SistemaMenu sistemaMenu = new SistemaMenu();
 		 
 		 if(admin.equals(administrador) && pass.equals(password)) {	
 			 //CORRECTO	
-			//System.out.println("Correcto");
+			sistemaMenu.tiempoSabado=480;
+			sistemaMenu.tiempoDomingo=360;
 			
 			Menu menuPeli = new Menu();
 			menuPeli.setBounds(0,0,1024,768);
@@ -29,7 +31,6 @@ public class SistemaLogin {
 			menuPeli.setVisible(true);
 			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaLogin.setVisible(false);
-			//dispose();
 			
 	        
 		 } else{
