@@ -65,6 +65,7 @@ public class Menu extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu() {
+		sistemaMenu.domingoBloqueado();
 		setResizable(false);
 		setBackground(Color.RED);
 		setTitle("Menu");
@@ -201,7 +202,7 @@ public class Menu extends JFrame implements ActionListener {
 		dramaDomingo.setBounds(538, 223, 394, 37);
 		contentPane.add(dramaDomingo);
 		dramaDomingo.addActionListener(this);
-		
+			
 		comediaDomingo = new JComboBox();
 		comediaDomingo.setModel(new DefaultComboBoxModel(sistemaMenu.mostrarPeliculas("comedia","domingo")));
 		comediaDomingo.setBackground(Color.WHITE);
@@ -226,6 +227,19 @@ public class Menu extends JFrame implements ActionListener {
 		contentPane.add(cienciaDomingo);
 		cienciaDomingo.addActionListener(this);
 		
+		//Para bloquear-desbloquear domingo
+		if(sistemaMenu.domingoBloqueado()==true) {				
+			dramaDomingo.disable();
+			comediaDomingo.disable();
+			terrorDomingo.disable();
+			cienciaDomingo.disable();
+		}else {	
+			dramaSabado.disable();
+			comediaSabado.disable();
+			terrorSabado.disable();
+			cienciaSabado.disable();
+		}
+	
 		
 		btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -297,6 +311,7 @@ public class Menu extends JFrame implements ActionListener {
 	        	
 	        	sistemaMenu.tiempoPeliculas();
 	        	sistemaMenu.continuarResumen();
+	        	
 	        }
 
 	    }

@@ -303,6 +303,45 @@ public class SistemaMenu {
 			}
 		}
 		
+		public boolean domingoBloqueado() {
+			boolean bloqueado=true;
+			int cont=0;
+			
+			//DRAMA 
+			for(int i=0;i<peliculasDrama.length;i++) {
+				if(tiempoPeliculasDrama[i]>tiempoSabado) {
+					cont++;
+				}
+			}
+			
+			//COMEDIA 
+			for(int i=0;i<peliculasComedia.length;i++) {
+				if(tiempoPeliculasComedia[i]>tiempoSabado) {
+					cont++;
+				}
+			}
+			
+			//SCIFI 
+			for(int i=0;i<peliculasScifi.length;i++) {
+				if(tiempoPeliculasScifi[i]>tiempoSabado) {
+					cont++;
+				}
+			}
+			
+			//TERROR 
+			for(int i=0;i<peliculasTerror.length;i++) {
+				if(tiempoPeliculasTerror[i]>tiempoSabado) {
+					cont++;
+				}
+			}
+			
+			if(cont>3) {
+				bloqueado=false;
+			}
+			
+			return bloqueado;
+		}
+		
 	 
 		
 }
