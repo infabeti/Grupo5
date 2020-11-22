@@ -22,8 +22,18 @@ public class SistemaLogin {
 		 
 		 if(admin.equals(administrador) && pass.equals(password)) {	
 			 //CORRECTO	
+			//Antes de nada inicializamos todos los valores a su valor estandar
 			sistemaMenu.tiempoSabado=480;
 			sistemaMenu.tiempoDomingo=360;
+			
+			sistemaMenu.peliDramaSabBloqueado=false;
+			sistemaMenu.peliComeSabBloqueado=false; 
+			sistemaMenu.peliCienciaSabBloqueado=false; 
+			sistemaMenu.peliTerrorSabBloqueado=false;	
+			sistemaMenu.peliDramaDominBloqueado=false;
+			sistemaMenu.peliComeDominBloqueado=false;
+			sistemaMenu.peliCienciaDominBloqueado=false;
+			sistemaMenu.peliTerrorDominBloqueado=false;	
 			
 			Menu menuPeli = new Menu();
 			menuPeli.setBounds(0,0,1024,768);
