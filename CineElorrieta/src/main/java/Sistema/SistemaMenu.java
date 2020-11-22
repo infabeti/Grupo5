@@ -340,29 +340,51 @@ public class SistemaMenu {
 			int cont=0;
 			
 			//DRAMA 
+			int contadorDrama=0;
 			for(int i=0;i<peliculasDrama.length;i++) {
+				
 				if(tiempoPeliculasDrama[i]>tiempoSabado) {
+					contadorDrama++;
+				}
+				
+				if(contadorDrama>3) {
 					cont++;
 				}
 			}
 			
 			//COMEDIA 
+			int contadorComedia=0;
 			for(int i=0;i<peliculasComedia.length;i++) {
+				
 				if(tiempoPeliculasComedia[i]>tiempoSabado) {
+					contadorComedia++;
+				}
+				
+				if(contadorComedia>3) {
 					cont++;
 				}
 			}
 			
 			//SCIFI 
+			int contadorCiencia=0;
 			for(int i=0;i<peliculasScifi.length;i++) {
 				if(tiempoPeliculasScifi[i]>tiempoSabado) {
+					contadorCiencia++;
+				}
+				
+				if(contadorCiencia>3) {
 					cont++;
 				}
 			}
 			
 			//TERROR 
+			int contadorTerror=0;
 			for(int i=0;i<peliculasTerror.length;i++) {
 				if(tiempoPeliculasTerror[i]>tiempoSabado) {
+					contadorTerror++;
+				}
+				
+				if(contadorTerror>3) {
 					cont++;
 				}
 			}
@@ -380,29 +402,49 @@ public class SistemaMenu {
 			int cont=0;
 			
 			//DRAMA 
+			int contadorDrama=0;
 			for(int i=0;i<peliculasDrama.length;i++) {
 				if(tiempoPeliculasDrama[i]>tiempoDomingo) {
-					cont++;
+					contadorDrama++;
 				}
+				
+				if(contadorDrama>3) {
+					cont++;
+				}	
 			}
 			
 			//COMEDIA 
+			int contadorComedia=0;
 			for(int i=0;i<peliculasComedia.length;i++) {
 				if(tiempoPeliculasComedia[i]>tiempoDomingo) {
+					contadorComedia++;
+				}
+				
+				if(contadorComedia>3) {
 					cont++;
 				}
 			}
 			
 			//SCIFI 
+			int contadorCiencia=0;
 			for(int i=0;i<peliculasScifi.length;i++) {
 				if(tiempoPeliculasScifi[i]>tiempoDomingo) {
+					contadorCiencia++;
+				}
+				
+				if(contadorCiencia>3) {
 					cont++;
 				}
 			}
 			
 			//TERROR 
+			int contadorTerror=0;
 			for(int i=0;i<peliculasTerror.length;i++) {
 				if(tiempoPeliculasTerror[i]>tiempoDomingo) {
+					contadorTerror++;
+				}
+				
+				if(contadorTerror>3) {
 					cont++;
 				}
 			}
