@@ -54,7 +54,7 @@ public class Menu extends JFrame implements ActionListener {
 					Menu frame = new Menu();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
-					
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -66,7 +66,7 @@ public class Menu extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setBackground(Color.RED);
 		setTitle("Menu");
@@ -337,7 +337,7 @@ public class Menu extends JFrame implements ActionListener {
 	        	sistemaMenu.tiempoPeliculas();
 	        	sistemaMenu.continuarResumen();  
 	        	sistemaMenu.bloquearGenero();
-	        	dispose();
+	        	
 	        }
 
 	    }

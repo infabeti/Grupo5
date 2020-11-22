@@ -78,7 +78,7 @@ public class Login extends JFrame implements ActionListener{
 		//ENVIAR
 		 if(e.getSource()==entrar){	
 			 sistemaLogin.checkAdmin(adminText.getText(),new String(passText.getPassword()));
-			
+			 
 		 }
 		 //SALIR
 		 if(e.getSource()==salir){	      

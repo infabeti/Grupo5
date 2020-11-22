@@ -44,6 +44,7 @@ public  class Resumen extends JFrame {
 					Resumen frame = new Resumen();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -76,6 +77,7 @@ public  class Resumen extends JFrame {
 					menu.setLocationRelativeTo(null);
 					menu.setVisible(true);
 					menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					dispose();
 				}else {
 					JOptionPane.showMessageDialog(null, "NO ENTRAN MAS PELICULAS");
 				}
