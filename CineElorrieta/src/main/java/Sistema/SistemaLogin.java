@@ -26,6 +26,9 @@ public class SistemaLogin {
 			sistemaMenu.tiempoSabado=480;
 			sistemaMenu.tiempoDomingo=360;
 			
+			sistemaMenu.tiempoEscogidoSabado=0;
+			sistemaMenu.tiempoEscogidoDomingo=0;
+			
 			sistemaMenu.peliDramaSabBloqueado=false;
 			sistemaMenu.peliComeSabBloqueado=false; 
 			sistemaMenu.peliCienciaSabBloqueado=false; 

@@ -18,6 +18,8 @@ public class SistemaMenu {
 	public static int tiempoDomingo=360;
 	public int tiempoEscogidoSabado=0;
 	public int tiempoEscogidoDomingo=0;
+	public static int tiempoFinalSabado=0;
+	public static int tiempoFinalDomingo=0;
 	public static boolean peliDramaSabBloqueado,peliComeSabBloqueado, peliCienciaSabBloqueado, peliTerrorSabBloqueado=false;	
 	public static boolean peliDramaDominBloqueado,peliComeDominBloqueado, peliCienciaDominBloqueado, peliTerrorDominBloqueado=false;	
 	//lista de peliculas con su tiempo por genero
@@ -327,12 +329,17 @@ public class SistemaMenu {
 				//Continuamos
 					tiempoSabado=tiempoSabado-tiempoEscogidoSabado;
 					tiempoDomingo=tiempoDomingo-tiempoEscogidoDomingo;
+					tiempoFinalSabado=tiempoFinalSabado+tiempoEscogidoSabado;
+					tiempoFinalDomingo=tiempoFinalDomingo+tiempoEscogidoDomingo;
 					Resumen resumen =new Resumen();
 				 	resumen.setBounds(0,0,1024,768);
 				 	resumen.setLocationRelativeTo(null);
 				 	resumen.setVisible(true);
 				 	resumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
+			
+			System.out.println(tiempoFinalSabado);
+			System.out.println(tiempoFinalDomingo);
 		}
 		
 		public boolean domingoBloqueado() {
@@ -493,6 +500,46 @@ public class SistemaMenu {
 			if(ventanaMenu.peliTerrorDominFinal!="") {
 				peliTerrorDominBloqueado=true;
 			}
+		}
+		
+		public String calcularTiempoFinalSabado() {
+			
+			String total;
+			int horas;
+			int minutos;
+			
+			horas=tiempoFinalSabado/60;
+			minutos=tiempoFinalSabado%60;
+			
+			if(minutos==0) {
+				total=""+horas+" h";
+				
+			}else {
+				
+				total=""+horas+" h y "+minutos+"m";
+			}
+			
+			return total;
+		}
+		
+		public String calcularTiempoFinalDomingo() {
+			
+			String total;
+			int horas;
+			int minutos;
+			
+			horas=tiempoFinalDomingo/60;
+			minutos=tiempoFinalDomingo%60;
+			
+			if(minutos==0) {
+				total=""+horas+" h";
+				
+			}else {
+				
+				total=""+horas+" h y "+minutos+"m";
+			}
+			
+			return total;
 		}
 		
 		
