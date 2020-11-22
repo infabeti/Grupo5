@@ -74,7 +74,7 @@ public class Menu extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 
-		setContentPane(contentPane);
+		setContentPane(contentPane); 
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("MENU");

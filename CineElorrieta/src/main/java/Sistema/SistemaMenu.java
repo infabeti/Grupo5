@@ -22,14 +22,14 @@ public class SistemaMenu {
 	public static boolean peliDramaDominBloqueado,peliComeDominBloqueado, peliCienciaDominBloqueado, peliTerrorDominBloqueado=false;	
 	//lista de peliculas con su tiempo por genero
 	public static String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
-	public int tiempoPeliculasDrama[]= {0,116,197,143,133};
+	public int tiempoPeliculasDrama[]= {0,116,197,144,133};
    
     String peliculasScifi[]= {"","2001:Odisea en el espacio: 2 h 22 min","La novia de Frankestein: 1 h 15 min",
     						  "El planeta de los simios: 1 h 55 min","Alien, el octavo pasajero: 1 h 57 min"};
     int tiempoPeliculasScifi[]= {0,142,75,115,117};
     
     String peliculasComedia[]= {"","Scary Movie: 1 h 30 min","El gran Lebowsky: 1 h 59 min","La vida de Brian: 1 h 34 min","Aterriza como puedas:  1 h 28 min"};
-    int tiempoPeliculasComedia[]= {0,90,199,94,88};
+    int tiempoPeliculasComedia[]= {0,90,119,94,88};
     
     String peliculasTerror[]= {"","Psicosis: 1 h 49 min","El resplandor: 2 h 26 min","Dracula: 2 h 35 min","Cisne negro: 1 h 50 min"};
     int tiempoPeliculasTerror[]= {0,109,146,155,110};
@@ -46,7 +46,7 @@ public class SistemaMenu {
 		    	for(int i=0;i<tiempoPeliculasDrama.length;i++) {
 			    	
 			    	//Miramos que esa pelicula pueda entrar dentro del dia
-		    		//SABADO
+		    		//SABADO 
 		    		if(dia.equalsIgnoreCase("sabado")) {
 				    	
 		    			if(tiempoSabado>= tiempoPeliculasDrama[i]) {
