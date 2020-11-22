@@ -92,19 +92,25 @@ public  class Resumen extends JFrame {
 				
 				int confimar = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la operación?", "Confirmación",JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				if(confimar==0){
+					if(sistemaMenu.domingoCompleto()==true) {
 					JOptionPane.showMessageDialog(null, "Operación concluida con éxito.");
 					Timer cronom = new Timer();
 			        cronom.schedule(new TimerTask() {
-			        public void run(){ // método que llevará a la ventana 
-			      
-			        	Final fin =new Final();
-			        	fin.setBounds(0,0,1024,768);
-			        	fin.setLocationRelativeTo(null);
-			        	fin.setVisible(true);
-			        	fin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			        	dispose();
+			        public void run(){ // método que llevará a la ventana  	
+				        	Final fin =new Final();
+				        	fin.setBounds(0,0,1024,768);
+				        	fin.setLocationRelativeTo(null);
+				        	fin.setVisible(true);
+				        	fin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				        	dispose();
+			        	
+			        		
+			        	
 			            
 			        }},2000);
+				   }else {
+					   JOptionPane.showMessageDialog(null, "QUEDAN MAS PELICULAS PARA ESCOGER");  
+				   }
 			           
 				}
 								
