@@ -17,7 +17,7 @@ public class SistemaLogin {
 		
 		//STRINGS PARA COMPROBAR
 		 String administrador="admin",password="1234";
-		 Login ventanaLogin = new Login();
+		 Ventanas.Login ventanaLogin = new Ventanas.Login();
 		 SistemaMenu sistemaMenu = new SistemaMenu();
 		 
 		 if(admin.equals(administrador) && pass.equals(password)) {	
@@ -41,6 +41,7 @@ public class SistemaLogin {
 			menuPeli.setVisible(true);
 			menuPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaLogin.setVisible(false);
+			ventanaLogin.dispose();
 			
 	        
 		 } else{
