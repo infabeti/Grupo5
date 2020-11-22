@@ -17,6 +17,7 @@ public class SistemaMenu {
 	public static int tiempoSabado=480;
 	public static int tiempoDomingo=360;
 	public int tiempoEscogidoSabado=0;
+	public int tiempoEscogidoDomingo=0;
 	
 	//lista de peliculas con su tiempo por genero
 	public static String peliculasDrama[]= {"","Handia: 1 h 56 min", "La lista de Schindler: 3 h 17 min", "Cadena Perpetua: 2 h 22 min", "Million Dollar Baby: 2 h 13 min"};
@@ -253,6 +254,7 @@ public class SistemaMenu {
 		public void tiempoPeliculas() {
 			Menu ventanaMenu = new Menu();
 			tiempoEscogidoSabado=0;
+			tiempoEscogidoDomingo=0;
 			
 			//DRAMA SABADO
 			for(int i=0;i<peliculasDrama.length;i++) {
@@ -281,6 +283,34 @@ public class SistemaMenu {
 					tiempoEscogidoSabado=tiempoEscogidoSabado+tiempoPeliculasTerror[i];
 				}
 			}
+			
+			//DRAMA DOMINGO
+			for(int i=0;i<peliculasDrama.length;i++) {
+				if(ventanaMenu.pelidramaDominFinal==peliculasDrama[i]){
+					tiempoEscogidoDomingo=tiempoEscogidoDomingo+tiempoPeliculasDrama[i];
+				}
+			}
+			
+			//COMEDIA DOMINGO
+			for(int i=0;i<peliculasComedia.length;i++) {
+				if(ventanaMenu.peliComeDominFinal==peliculasComedia[i]){
+					tiempoEscogidoDomingo=tiempoEscogidoDomingo+tiempoPeliculasComedia[i];
+				}
+			}
+			
+			//SCIFI DOMINGO
+			for(int i=0;i<peliculasScifi.length;i++) {
+				if(ventanaMenu.peliCienciaDominFinal==peliculasScifi[i]){
+					tiempoEscogidoDomingo=tiempoEscogidoDomingo+tiempoPeliculasScifi[i];
+				}
+			}
+			
+			//TERROR DOMINGO
+			for(int i=0;i<peliculasTerror.length;i++) {
+				if(ventanaMenu.peliTerrorDominFinal==peliculasTerror[i]){
+					tiempoEscogidoDomingo=tiempoEscogidoDomingo+tiempoPeliculasTerror[i];
+				}
+			}
 				
 			
 					
@@ -288,18 +318,19 @@ public class SistemaMenu {
 		
 		public void continuarResumen() {
 					
-			if(tiempoEscogidoSabado>tiempoSabado) {
+			if(tiempoEscogidoSabado>tiempoSabado || tiempoEscogidoDomingo>tiempoDomingo) {
 				//No continuamos
-				JOptionPane.showMessageDialog(null, "HAS SUPERADO EL TIEMPO DISPONIBLE DEL SABADO");
+				JOptionPane.showMessageDialog(null, "HAS SUPERADO EL TIEMPO DISPONIBLE");
 				
 			}else {
 				//Continuamos
-				tiempoSabado=tiempoSabado-tiempoEscogidoSabado;
-				Resumen resumen =new Resumen();
-			 	resumen.setBounds(0,0,1024,768);
-			 	resumen.setLocationRelativeTo(null);
-			 	resumen.setVisible(true);
-			 	resumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					tiempoSabado=tiempoSabado-tiempoEscogidoSabado;
+					tiempoDomingo=tiempoDomingo-tiempoEscogidoDomingo;
+					Resumen resumen =new Resumen();
+				 	resumen.setBounds(0,0,1024,768);
+				 	resumen.setLocationRelativeTo(null);
+				 	resumen.setVisible(true);
+				 	resumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		}
 		
@@ -342,6 +373,45 @@ public class SistemaMenu {
 			return bloqueado;
 		}
 		
-	 
+	
+		public boolean domingoCompleto() {
+			boolean completo=false;
+			int cont=0;
+			
+			//DRAMA 
+			for(int i=0;i<peliculasDrama.length;i++) {
+				if(tiempoPeliculasDrama[i]>tiempoDomingo) {
+					cont++;
+				}
+			}
+			
+			//COMEDIA 
+			for(int i=0;i<peliculasComedia.length;i++) {
+				if(tiempoPeliculasComedia[i]>tiempoDomingo) {
+					cont++;
+				}
+			}
+			
+			//SCIFI 
+			for(int i=0;i<peliculasScifi.length;i++) {
+				if(tiempoPeliculasScifi[i]>tiempoDomingo) {
+					cont++;
+				}
+			}
+			
+			//TERROR 
+			for(int i=0;i<peliculasTerror.length;i++) {
+				if(tiempoPeliculasTerror[i]>tiempoDomingo) {
+					cont++;
+				}
+			}
+			
+			if(cont>3) {
+				completo=true;
+			}
+			
+			
+			return completo;
+		}
 		
 }

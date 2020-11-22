@@ -40,6 +40,7 @@ public class Menu extends JFrame implements ActionListener {
 	public static String pelidramaSab,peliComeSab, peliCienciaSab, peliTerrorSab;
 	public static String pelidramaDomin,peliComeDomin, peliCienciaDomin, peliTerrorDomin;
 	public static String pelidramaSabFinal,peliComeSabFinal, peliCienciaSabFinal, peliTerrorSabFinal;
+	public static String pelidramaDominFinal,peliComeDominFinal, peliCienciaDominFinal, peliTerrorDominFinal;
 	public static JComboBox dramaSabado,comediaSabado,terrorSabado,cienciaSabado, dramaDomingo,comediaDomingo,terrorDomingo,cienciaDomingo;
 	public JButton btnSiguiente;
 		
@@ -146,7 +147,7 @@ public class Menu extends JFrame implements ActionListener {
 		//LABEL DEL TIEMPO DOMINGO
 		JLabel lblNewLabel_1_2_1 = new JLabel("Domingo: "+sistemaMenu.calcularTiempoDomingo());
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1_2_1.setBounds(669, 114, 222, 31);
+		lblNewLabel_1_2_1.setBounds(669, 114, 262, 31);
 		contentPane.add(lblNewLabel_1_2_1);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Drama");
@@ -309,9 +310,13 @@ public class Menu extends JFrame implements ActionListener {
 	        	peliTerrorSabFinal = String.valueOf(terrorSabado.getSelectedItem());
 	        	peliComeSabFinal = String.valueOf(comediaSabado.getSelectedItem());
 	        	
-	        	sistemaMenu.tiempoPeliculas();
-	        	sistemaMenu.continuarResumen();
+	        	pelidramaDominFinal = String.valueOf(dramaDomingo.getSelectedItem());
+	        	peliCienciaDominFinal = String.valueOf(cienciaDomingo.getSelectedItem());
+	        	peliTerrorDominFinal = String.valueOf(terrorDomingo.getSelectedItem());
+	        	peliComeDominFinal = String.valueOf(comediaDomingo.getSelectedItem());
 	        	
+	        	sistemaMenu.tiempoPeliculas();
+	        	sistemaMenu.continuarResumen();  	
 	        }
 
 	    }

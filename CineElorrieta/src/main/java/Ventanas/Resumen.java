@@ -70,11 +70,15 @@ public  class Resumen extends JFrame {
 		JButton btnSeguirElig = new JButton("SEGUIR ELIGIENDO");
 		btnSeguirElig.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Ventanas.Menu menu =new Ventanas.Menu();
-				menu.setBounds(0,0,1024,768);
-				menu.setLocationRelativeTo(null);
-				menu.setVisible(true);
-				menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				if(sistemaMenu.domingoCompleto()==false) {
+					Ventanas.Menu menu =new Ventanas.Menu();
+					menu.setBounds(0,0,1024,768);
+					menu.setLocationRelativeTo(null);
+					menu.setVisible(true);
+					menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}else {
+					JOptionPane.showMessageDialog(null, "NO ENTRAN MAS PELICULAS");
+				}
 				
 			}
 		});
