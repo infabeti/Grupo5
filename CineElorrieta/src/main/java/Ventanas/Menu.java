@@ -66,10 +66,10 @@ public class Menu extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Menu() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBackground(Color.RED);
 		setTitle("Menu");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1031, 733);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
@@ -337,6 +337,7 @@ public class Menu extends JFrame implements ActionListener {
 	        	sistemaMenu.tiempoPeliculas();
 	        	sistemaMenu.continuarResumen();  
 	        	sistemaMenu.bloquearGenero();
+	        	dispose();
 	        }
 
 	    }

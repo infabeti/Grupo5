@@ -45,7 +45,6 @@ public class BienVenido extends JFrame {
         }},3000);
         
     }
-
     
       public static void main(String[] ar){
        
@@ -54,7 +53,6 @@ public class BienVenido extends JFrame {
            inicio.setLocationRelativeTo(null);
            inicio.setVisible(true);
            inicio.setTitle("Bienvenido");
-          
           
       }
 }

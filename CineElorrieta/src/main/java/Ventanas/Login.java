@@ -27,7 +27,7 @@ public class Login extends JFrame implements ActionListener{
 	private JLabel lblCineElorrieta;
 		
 	public Login(){
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		adminLabel = new JLabel("LOGIN:");
